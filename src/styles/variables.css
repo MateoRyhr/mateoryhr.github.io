@@ -1,0 +1,8 @@
+/* src/styles/variables.css */
+:root {
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --accent-blue: #007acc;
+  --text-main: #e0e0e0;
+  --terminal-green: #27c93f;
+}

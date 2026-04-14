@@ -1,0 +1,55 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  # Se ejecutará cada vez que hagas push a la rama 'main'
+  push:
+    branches: ["main"]
+  # Permite ejecutar el workflow manualmente desde la pestaña "Actions"
+  workflow_dispatch:
+
+# Permisos necesarios para que GitHub Actions pueda publicar la página
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita que se ejecuten despliegues simultáneos si haces varios pushes rápidos
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar el proyecto (Build)
+        run: npm run build
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Subir los archivos compilados (Artifact)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite guarda el proyecto compilado en la carpeta 'dist'
+          path: "./dist"
+
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
