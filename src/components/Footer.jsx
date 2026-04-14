@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-links">
-          <a href="https://www.linkedin.com/in/mateo-ryhr-635a13206/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/mateo-ryhr/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/MateoRyhr" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:mateoryhr29@gmail.com" className="email-link">
             mateoryhr29@gmail.com
