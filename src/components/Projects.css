@@ -1,0 +1,150 @@
+/* src/components/Projects.css */
+
+.projects-section {
+  /* Solución: Mucho más padding top/bottom para separar de otras secciones */
+  padding: 8rem 2rem; 
+  background-color: var(--bg-dark);
+}
+
+.projects-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  /* Solución: Aseguramos que no se pegue al borde y le damos margen inferior */
+  text-align: left;
+  margin-bottom: 3rem;
+  color: var(--text-main);
+}
+
+.code-accent {
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem; /* Un poco más de espacio entre tarjetas */
+  align-items: stretch; 
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2.5rem; /* Tarjetas un poco más amplias por dentro */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-cyan);
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* Solución: Gap de flexbox maneja el espaciado interior automáticamente */
+  gap: 1.25rem; 
+}
+
+.project-card h3 {
+  color: var(--text-main);
+  font-size: 1.6rem;
+  margin: 0; /* El margen lo maneja el 'gap' del padre */
+  line-height: 1.2;
+}
+
+.project-category {
+  color: #D8B4FE;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: -0.8rem; /* Lo acerca sutilmente al título */
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =========================================
+   Stack Tecnológico y Links (Separadores)
+   ========================================= */
+.tech-stack {
+  margin-top: auto; /* Empuja el stack y los links al fondo */
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.tech-item {
+  color: var(--accent-green);
+}
+
+.separator {
+  color: var(--text-muted);
+  opacity: 0.4;
+  margin: 0 0.5rem;
+  font-weight: 300;
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem; /* Un respiro extra entre las tecnologías y los links */
+}
+
+.project-links a {
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.project-links a::before {
+  content: '> ';
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover,
+.project-links a:hover::before {
+  color: var(--accent-cyan);
+}
+
+
+.testing-status {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Le agregamos el mismo indicador de consola que a los links, pero más opaco */
+.testing-status::before {
+  content: '> ';
+  font-style: normal;
+  margin-right: 0.4rem;
+  opacity: 0.5;
+}

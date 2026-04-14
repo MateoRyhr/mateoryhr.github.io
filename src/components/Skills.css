@@ -1,0 +1,88 @@
+/* Skills Section Container */
+.skills-section {
+  padding: 5rem 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+}
+
+.skills-container {
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Typography */
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.code-accent {
+  color: var(--accent-color);
+}
+
+/* Grid Layout for Categories */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Skill Card */
+.skill-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+}
+
+.skill-category-title {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Skill Tags */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-item {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background-color: rgba(99, 102, 241, 0.1); /* Subtle accent background */
+  color: var(--accent-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}

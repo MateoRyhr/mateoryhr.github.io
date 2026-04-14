@@ -1,46 +1,113 @@
-/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  /* Paleta de Colores - Premium Tech */
+  --bg-dark: #0F172A; /* Fondo profundo y elegante (el de SpaceRadar) */
+  --bg-card: #1E293B; /* Fondo para separar las tarjetas de los proyectos */
+  --text-main: #F8FAFC; /* Blanco roto, no cansa la vista */
+  --text-muted: #94A3B8; /* Gris azulado para textos secundarios */
+  
+  /* Colores de Acento (Tus SVG) */
+  --accent-cyan: #22D3EE; /* Para botones y llamadas a la acción */
+  --accent-green: #10B981; /* Para los tags de éxito o tecnologías */
+  
+  /* Tipografía */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-html {
-  scroll-behavior: smooth; /* Para que al clickear "Ver Proyectos" baje suavemente */
+/* =========================================
+   Reseteo y Base
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #121212; /* Tu fondo oscuro base */
-  color: #e0e0e0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar personalizado estilo VS Code (oscuro) */
-::-webkit-scrollbar {
-  width: 10px;
+/* =========================================
+   Tipografía General
+   ========================================= */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em; /* Le da un toque muy moderno a los títulos */
+  margin-bottom: 1rem;
 }
 
-::-webkit-scrollbar-track {
-  background: #121212;
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive fluido */
+  color: var(--text-main);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 5px;
+p {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #444;
+/* El toque Tech: úsalo rodeando tu rol, ej: <span className="highlight">Backend Engineer</span> */
+.highlight {
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9em;
 }
 
-/* Contenedor principal */
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* =========================================
+   Componentes Globales
+   ========================================= */
+/* Botones estilo Terminal Moderna */
+button, .btn {
+  background-color: transparent;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid var(--accent-cyan);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: rgba(34, 211, 238, 0.1);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+}
+
+/* Tarjetas para tus Proyectos */
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-green); /* Se ilumina con tu verde al pasar el mouse */
+}
+
+/* Tags para el Stack Tecnológico (Node.js, C++, Kotlin, etc) */
+.tech-tag {
+  display: inline-block;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }

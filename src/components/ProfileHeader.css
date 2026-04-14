@@ -1,0 +1,111 @@
+/* src/components/ProfileHeader.css */
+
+.profile-header-container {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: flex-start; /* Alineación a la izquierda */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-content {
+  text-align: left; /* Alineación a la izquierda */
+}
+
+.tech-greeting {
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.dev-name {
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 0.5rem; /* Menos espacio abajo del nombre para agruparlo con el título */
+}
+
+.dev-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 2rem; /* Más respiro antes de la descripción */
+}
+
+.accent-color {
+  color: var(--accent-cyan);
+  font-weight: 800;
+}
+
+.dev-description {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 650px; /* Limita el ancho para que la lectura sea muy cómoda */
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.dev-description strong {
+  color: var(--text-main);
+}
+
+/* =========================================
+   Botones de Acción (Call to Action)
+   ========================================= */
+.action-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Botón Primario: Fondo sólido, llama la atención */
+.btn-primary {
+  background-color: var(--accent-cyan);
+  color: var(--bg-dark); /* Texto oscuro para contrastar con el cian brillante */
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent-cyan);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2); /* Resplandor sutil */
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* Botón Secundario: Más discreto, estilo outline */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+  .profile-header-container {
+    padding: 4rem 1.5rem;
+  }
+  .action-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-primary, .btn-secondary {
+    text-align: center;
+  }
+}

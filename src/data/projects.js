@@ -4,18 +4,23 @@ export const projects = [
   {
     id: 1,
     title: "CountEverything Industry & Lab",
-    description: "Computer vision solution for professional counting in industrial and laboratory environments.",
-    stack: ["React Native", "Node.js", "Computer Vision"],
-    status: "Published",
-    // Focus on the logic/backend part here
-    highlights: "Implemented efficient data processing for real-time counting results."
+    description: "Sistema industrial de conteo de objetos mediante visión computacional. Optimizado para líneas de producción y entornos de laboratorio.",
+    longDescription: "Desarrollo de algoritmos personalizados de visión computacional en Kotlin para procesar matrices de píxeles en tiempo real. Alto rendimiento logrado sin dependencias pesadas externas como OpenCV.",
+    tech: ["React Native", "Kotlin"],
+    links: {
+      playstore: ""
+    },
+    category: "Mobile y Algoritmos"
   },
   {
     id: 2,
     title: "SpaceRadar",
-    description: "Real-time tracking application for the ISS and Near-Earth Objects using NASA APIs.",
-    stack: ["React Native", "Node.js", "External APIs"],
-    status: "Active",
-    highlights: "Designed a robust data fetching layer to handle complex astronomical coordinates."
+    description: "Sistema de rastreo en tiempo real de la Estación Espacial Internacional (ISS) y Objetos Próximos a la Tierra (NEOs).",
+    longDescription: "Integración de APIs públicas de la NASA para monitorear trayectorias orbitales. Implementación de un sistema de notificaciones para eventos astronómicos basado en la geolocalización del usuario.",
+    tech: ["React Native", "Node.js", "PostgreSQL"],
+    links: {
+      playstore: ""
+    },
+    category: "Tecnología Espacial y Backend"
   }
 ];
