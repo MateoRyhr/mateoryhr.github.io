@@ -1,36 +1,30 @@
+// src/App.jsx actualizado
 import React from 'react';
-import ProfileHeader from './components/ProfileHeader';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
+import Home from './pages/Home'; // Este lo creas moviendo el contenido del main actual
+import ProjectDetail from './components/ProjectDetail';
 import './App.css';
 
-/**
- * Main Application component
- * Integrates Hero, Skills, and Projects sections
- */
 function App() {
   return (
-    <div className="portfolio-wrapper">
-      <header>
-        {/* Navigation could be added here later */}
-      </header>
+    <BrowserRouter>
+      <div className="portfolio-wrapper">
+        <header>
+          {/* Aquí podrías poner una NavBar sutil si quisieras */}
+        </header>
 
-      <main>
-        {/* Intro with focus on Fullstack, Node.js, React and React Native */}
-        <ProfileHeader />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* Ruta dinámica para cada proyecto */}
+            <Route path="/proyecto/:projectId" element={<ProjectDetail />} />
+          </Routes>
+        </main>
 
-        {/* Technical Arsenal (Skills) */}
-        <Skills />
-
-        {/* Displaying CountEverything and SpaceRadar */}
-        <section id="projects">
-          <Projects />
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

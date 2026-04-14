@@ -1,6 +1,7 @@
 import React from 'react';
 import { projects } from '../data/projects';
 import './Projects.css';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   return (
@@ -30,6 +31,12 @@ const Projects = () => {
                     </React.Fragment>
                   ))}
                 </div>
+                
+                <div className="project-action">
+                  <Link to={`/proyecto/${project.id}`} className="btn-read-more">
+                    Ver Detalles y Arquitectura →
+                  </Link>
+                </div>
 
                 {/* 3. Links con separador ' | ' condicional */}
                 <div className="project-links">
@@ -46,7 +53,7 @@ const Projects = () => {
                   {/* Lógica de Play Store: Testing vs Link */}
                   {project.links.playstore !== undefined && (
                     project.links.playstore === "" ? (
-                      <span className="testing-status">Currently in closed testing in Play Store</span>
+                      <span className="testing-status">En fase de pruebas cerradas en Play Store.</span>
                     ) : (
                       <a href={project.links.playstore} target="_blank" rel="noreferrer">Play Store</a>
                     )

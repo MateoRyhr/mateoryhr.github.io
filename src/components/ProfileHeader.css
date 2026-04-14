@@ -1,29 +1,65 @@
 /* src/components/ProfileHeader.css */
 
+/* Agrega esto a src/components/ProfileHeader.css */
+
+.profile-image-container {
+  margin-bottom: 1rem;
+}
+
+.profile-image {
+  width: 120px; /* Tamaño estilo GitHub */
+  height: 120px;
+  border-radius: 50%; /* Circular */
+  border: 4px solid var(--bg-card); /* Borde sutil */
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2); /* Resplandor temático */
+  object-fit: cover; /* Asegura que no se deforme */
+}
+
+.profile-image {
+  width: 180px; /* Tamaño grande que te gustó */
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-green); /* Borde verde console */
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15); /* Resplandor suave */
+  object-fit: cover;
+}
+
 .profile-header-container {
-  padding: 6rem 2rem;
-  display: flex;
-  justify-content: flex-start; /* Alineación a la izquierda */
+  padding: 2rem 2rem 3rem 2rem; /* Más aire arriba */
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Asegura flujo vertical */
+  gap: 1.5rem;
 }
 
 .profile-content {
   text-align: left; /* Alineación a la izquierda */
 }
 
+.profile-main-layout {
+  display: flex;
+  align-items: flex-start; /* Alinea la parte superior de la imagen con el texto */
+  gap: 3.5rem; /* Espacio entre imagen y texto */
+}
+
+.profile-image-container {
+  flex-shrink: 0; /* Evita que la imagen se achique */
+}
+
 .tech-greeting {
   color: var(--accent-green);
   font-family: var(--font-mono);
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
 }
 
 .dev-name {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 8vw, 4.5rem);
   color: var(--text-main);
   line-height: 1.1;
-  margin-bottom: 0.5rem; /* Menos espacio abajo del nombre para agruparlo con el título */
+  margin-bottom: 1rem;
 }
 
 .dev-title {
@@ -96,16 +132,20 @@
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Responsividad para móviles */
 @media (max-width: 768px) {
-  .profile-header-container {
-    padding: 4rem 1.5rem;
-  }
-  .action-links {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .btn-primary, .btn-secondary {
+  .profile-main-layout {
+    flex-direction: column; /* En móviles vuelve a estar arriba de la otra */
+    align-items: center;
     text-align: center;
+    gap: 2rem;
+  }
+  
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .action-links {
+    justify-content: center;
   }
 }

@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-info">
           <p className="footer-copyright">
-            © {currentYear} — Built with React by Mateo
+            © {currentYear} — Construido con React por Mateo
           </p>
         </div>
 
