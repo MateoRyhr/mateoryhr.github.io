@@ -90,7 +90,7 @@ export const projects = [
     ],
     tech: ["React Native", "Node.js", "PostgreSQL"],
     links: {
-      playstore: ""
+      playstore: "https://play.google.com/store/apps/details?id=com.mateoryhr.spaceradar"
     },
     category: "Backend & Mobile"
   }
