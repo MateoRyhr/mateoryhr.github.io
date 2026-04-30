@@ -55,7 +55,7 @@ p {
   max-width: 600px;
 }
 
-/* El toque Tech: úsalo rodeando tu rol, ej: <span className="highlight">Backend Engineer</span> */
+/* El toque Tech: úsalo rodeando tu rol, ej: <span className="highlight">Backend Dev</span> */
 .highlight {
   color: var(--accent-cyan);
   font-family: var(--font-mono);

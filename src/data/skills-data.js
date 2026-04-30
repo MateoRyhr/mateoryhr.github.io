@@ -2,14 +2,14 @@
 
 export const skills = [
   {
-    title: "Backend y Arquitectura",
+    title: "Backend",
     icon: "⚙️",
-    skills: ["Node.js", "Express", "PostgreSQL", "APIs RESTful", "Docker"]
+    skills: ["TypeScript", "Node.js", "Express", "PostgreSQL", "APIs RESTful", "Despliegue en Supabase y Render"]
   },
   {
     title: "Frontend (Web)",
     icon: "💻",
-    skills: ["React", "JavaScript (ES6+)", "TypeScript", "HTML5/CSS3", "Gestión de Estados"]
+    skills: ["React", "Electron", "JavaScript (ES6+)", "HTML5/CSS3", "Gestión de Estados"]
   },
   {
     title: "Desarrollo Mobile",
@@ -19,7 +19,7 @@ export const skills = [
   {
     title: "Ingeniería Core",
     icon: "🧠",
-    skills: ["Diseño de Algoritmos", "Linux/WSL2", "Git/GitHub"]
+    skills: ["Algoritmos", "Linux/WSL2", "Git/GitHub", "Docker", "Diseño de Arquitectura", "SOLID", "CI/CD con GitHub Actions"]
   },
   {
     title: "Habilidades Blandas",

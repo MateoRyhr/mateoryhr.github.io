@@ -93,5 +93,38 @@ export const projects = [
       playstore: "https://play.google.com/store/apps/details?id=com.mateoryhr.spaceradar"
     },
     category: "Backend & Mobile"
+  },
+  {
+    id: 3,
+    title: "Code Snippet Manager",
+    description: "Aplicación de escritorio multiplataforma para gestionar fragmentos de código, diseñada con un enfoque en productividad y generación rápida de contexto para herramientas de Inteligencia Artificial.",
+    longDescription: "Desarrollada bajo una arquitectura Fullstack (Electron, React, Node.js, Prisma), esta herramienta permite a los desarrolladores organizar, buscar e importar masivamente repositorios locales enteros. Su característica más destacada es un generador de contexto que agrupa dinámicamente el código de múltiples archivos en un formato optimizado para ser procesado por LLMs (como ChatGPT o Claude), acelerando drásticamente el flujo de desarrollo guiado por IA.",
+    technicalDetails: [
+      {
+        title: "Arquitectura Multiplataforma y Sistema de Archivos Nativo",
+        description: "Integración profunda entre el proceso principal de Electron (Node.js) y el proceso de renderizado (React) mediante canales IPC seguros.",
+        items: [
+          "Implementación de un algoritmo de búsqueda recursiva (File Crawler) para la importación masiva de código local, aplicando filtros por extensión y omitiendo de forma inteligente directorios pesados (node_modules, .git).",
+          "Manejo avanzado de APIs nativas del OS para cuadros de diálogo, gestionando la sincronización de foco y resolviendo colisiones entre Chromium y el gestor de ventanas de Windows (Drag Regions).",
+          "Diseño de interfaz Optimista (Optimistic UI) con Tailwind CSS, garantizando actualizaciones de estado instantáneas sin esperar la latencia de la base de datos."
+        ]
+      },
+      {
+        title: "Backend, Integridad de Datos y Funciones IA",
+        description: "Desarrollo de una API RESTful robusta y tipada estrictamente con TypeScript de extremo a extremo.",
+        items: [
+          "Diseño de base de datos relacional con PostgreSQL y Prisma ORM, implementando transacciones ($transaction) para garantizar el borrado en cascada seguro y mantener la integridad referencial.",
+          "Desarrollo de una utilidad de 'Contexto IA' que concatena y formatea estructuras de carpetas enteras utilizando delimitadores estándar (--- FILE: [name] ---) requeridos por modelos de lenguaje modernos.",
+          "Validación estricta de esquemas de entrada en la API utilizando Zod y manejo centralizado de errores para respuestas HTTP consistentes.",
+          "Implementación de un flujo seguro de verificación de cuentas mediante la generación de tokens criptográficos con tiempo de expiración y el envío asíncrono de correos electrónicos automatizados para activar y validar a los nuevos usuarios."
+        ]
+      }
+    ],
+    tech: ["Electron", "React", "Node", "PostgreeSQL"],
+    links: {
+      github: "https://github.com/MateoRyhr/code-snippet-manager",
+      web: "https://mateoryhr.github.io/code-snippet-manager/"
+    },
+    category: "Desktop Fullstack"
   }
 ];

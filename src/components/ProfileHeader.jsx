@@ -16,7 +16,7 @@ const ProfileHeader = () => {
         
         <h1 className="dev-name">Mateo Ryhr</h1>
         <h2 className="dev-title">
-          Fullstack Backend Engineer <span className="accent-color">|</span> React & React Native
+          Fullstack Backend Dev <span className="accent-color">|</span> React & React Native
         </h2>
         
         <p className="dev-description">

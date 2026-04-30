@@ -38,19 +38,20 @@ const Projects = () => {
                   </Link>
                 </div>
 
-                {/* 3. Links con separador ' | ' condicional */}
+                {/* 3. Links dinámicos (Apilados verticalmente) */}
                 <div className="project-links">
+                  
                   {/* Link de GitHub */}
                   {project.links.github && (
                     <a href={project.links.github} target="_blank" rel="noreferrer">GitHub</a>
                   )}
-                  
-                  {/* Separador: Aparece si hay GitHub y la propiedad playstore existe (esté vacía o no) */}
-                  {project.links.github && project.links.playstore !== undefined && (
-                    <span className="separator"> | </span>
+
+                  {/* Link de Web */}
+                  {project.links.web && (
+                    <a href={project.links.web} target="_blank" rel="noreferrer">Web</a>
                   )}
 
-                  {/* Lógica de Play Store: Testing vs Link */}
+                  {/* Lógica de Play Store */}
                   {project.links.playstore !== undefined && (
                     project.links.playstore === "" ? (
                       <span className="testing-status">En fase de pruebas cerradas en Play Store.</span>
@@ -58,7 +59,8 @@ const Projects = () => {
                       <a href={project.links.playstore} target="_blank" rel="noreferrer">Play Store</a>
                     )
                   )}
-                </div>
+                  
+                </div>              
                 
               </div>
             </div>

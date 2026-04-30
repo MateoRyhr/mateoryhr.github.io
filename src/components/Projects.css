@@ -127,11 +127,13 @@
 
 .project-links {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column; 
+  gap: 0.8rem;            
+  align-items: flex-start;
+  
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.5rem;
-  margin-top: 0.5rem; /* Un respiro extra entre las tecnologías y los links */
+  margin-top: 0.5rem;
 }
 
 .project-links a {
