@@ -1,0 +1,182 @@
+{
+  "project": "Mateo Ryhr — Portfolio",
+  "description": "Personal portfolio website showcasing software engineering projects, skills, and technical architecture. Built with React and deployed via GitHub Pages.",
+  "rules": {
+    "one_feature_at_a_time": true,
+    "require_verification_to_close": true,
+    "valid_status": ["pending", "in_progress", "done", "blocked"]
+  },
+  "features": [
+    {
+      "id": 1,
+      "name": "profile_hero_section",
+      "title": "Profile Hero Section",
+      "description": "ProfileHeader component with photo, name, title, description, and call-to-action buttons. Console-themed greeting (> console.log). Responsive layout with avatar and tech-cyber aesthetic.",
+      "acceptance": [
+        "ProfileHeader.jsx renders photo, name, dev title, and description",
+        "Console-style greeting with green terminal color is visible",
+        "Two CTAs: 'Explorar Proyectos' (primary) and GitHub (secondary)",
+        "Responsive: stacks vertically on mobile, horizontal on desktop",
+        "Image is circular with green accent border and glow effect",
+        "All text uses CSS custom properties for colors"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "name": "skills_section",
+      "title": "Skills Section",
+      "description": "Skills component displaying categorized technical skills in a grid of cards. Data-driven from src/data/skills-data.js. Categories: Backend, Frontend, Mobile, Core Engineering, Soft Skills.",
+      "acceptance": [
+        "Skills.jsx reads data from src/data/skills-data.js",
+        "Each skill category renders as a card with icon, title, and tags",
+        "Grid layout adapts to screen width (auto-fit, min 240px)",
+        "Hover state lifts card and highlights border",
+        "Skill tags use monospace font and accent color background",
+        "CSS follows custom property pattern from variables.css"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "name": "projects_grid",
+      "title": "Projects Grid",
+      "description": "Projects component displaying all portfolio projects as interactive cards in a responsive grid. Each card shows title, category, description, tech stack, and links. Data-driven from src/data/projects.js.",
+      "acceptance": [
+        "Projects.jsx maps over projects array from src/data/projects.js",
+        "Each card displays: title, category badge, description, tech stack with green separators",
+        "Tech stack uses monospace font with ' | ' separators in muted color",
+        "'Ver Detalles y Arquitectura →' link navigates to /proyecto/:projectId",
+        "External links (GitHub, Web, Play Store) render with '> ' console prefix",
+        "Play Store shows 'En fase de pruebas cerradas' when link is empty string",
+        "Grid uses auto-fit with min 320px columns",
+        "Card hover: lifts 5px, border glows cyan"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "name": "project_detail_page",
+      "title": "Project Detail Page",
+      "description": "ProjectDetail component rendered at /proyecto/:projectId. Shows full technical breakdown with ordered challenges, unordered solution lists, tech badges, and back navigation. Handles invalid IDs gracefully.",
+      "acceptance": [
+        "Route /proyecto/:projectId renders detailed view of one project",
+        "404 state renders when project ID is not found, with back link",
+        "Header shows category, title, description, and tech badges",
+        "Technical details section uses ordered list for challenge titles",
+        "Each challenge has description text and unordered list with '>' bullet prefix",
+        "Tech badges use monospace green-on-dark-green styling",
+        "Back button uses monospace font and links to homepage",
+        "Responsive layout with proper padding on mobile"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 5,
+      "name": "footer_navigation",
+      "title": "Footer & Navigation",
+      "description": "Footer component with copyright, social links (LinkedIn, GitHub, email). Uses subtle dark background with top border separator. Terminal-inspired status indicator with pulsing green dot.",
+      "acceptance": [
+        "Footer.jsx renders current year dynamically via new Date().getFullYear()",
+        "Contains LinkedIn, GitHub links, and email contact",
+        "Email uses monospace font with blue accent color",
+        "Status indicator shows pulsing green dot with 'Sistema operativo' label",
+        "Mobile: links stack vertically below copyright",
+        "CSS respects custom property color scheme"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 6,
+      "name": "home_page_routing",
+      "title": "Home Page & Routing",
+      "description": "Home page composing all sections (ProfileHeader, Skills, Projects) and React Router configuration for SPA navigation between home and project detail views.",
+      "acceptance": [
+        "Home.jsx composes ProfileHeader, Skills, and Projects sections",
+        "BrowserRouter wraps the app in App.jsx",
+        "Two routes: / (Home) and /proyecto/:projectId (ProjectDetail)",
+        "Navigation between pages does not trigger full page reload",
+        "App.css provides global reset, typography, and shared component classes",
+        "Google Fonts (Inter + JetBrains Mono) loaded once in App.css"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 7,
+      "name": "design_system_docs",
+      "title": "Design System & Documentation",
+      "description": "DESIGN.md documenting the visual design system: color palette, typography, component patterns, interactions, and CSS architecture. Central reference for maintaining visual consistency.",
+      "acceptance": [
+        "DESIGN.md exists at project root",
+        "Documents color palette with hex values and semantic usage",
+        "Documents typography stack (Inter, JetBrains Mono) and sizing",
+        "Documents all component patterns with their visual treatments",
+        "Documents interaction states (hover, focus, transitions)",
+        "Documents responsive breakpoints and layout patterns",
+        "Documents CSS architecture (custom properties, component-scoped files)"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 8,
+      "name": "github_pages_deployment",
+      "title": "GitHub Pages Deployment",
+      "description": "Configure Vite build for GitHub Pages deployment. Setup gh-pages deploy script, ensure base URL is correct, and verify production build produces working static output.",
+      "acceptance": [
+        "vite.config.js has correct base: '/' for root domain or '/repo/' for project pages",
+        "npm run build exits 0 and produces dist/",
+        "dist/index.html loads all assets with correct paths",
+        "React Router works in production (no 404 on page refresh)",
+        "404.html exists in public/ for SPA fallback (or GitHub Actions handles it)"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "name": "performance_optimization",
+      "title": "Performance & SEO Optimization",
+      "description": "Optimize bundle size, add lazy loading for routes, set up meta tags for SEO, ensure accessibility compliance, and add performance monitoring.",
+      "acceptance": [
+        "React.lazy() for ProjectDetail page to reduce initial bundle",
+        "Meta tags for OG image, description, and keywords in index.html",
+        "Lighthouse scores ≥ 90 for Performance, Accessibility, SEO",
+        "Image assets are optimized (webp or compressed png)",
+        "Semantic HTML throughout all components",
+        "ARIA labels on interactive elements"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "name": "dark_theme_refinement",
+      "title": "Dark Theme & Visual Refinement",
+      "description": "Refine the existing dark theme with consistent color tokens, smooth transitions, and a unified visual language across all components. Ensure no light-mode vestiges remain.",
+      "acceptance": [
+        "All CSS uses custom properties from variables.css or App.css :root",
+        "No hardcoded color values remain in component CSS files",
+        "Smooth transition on theme-related properties (0.3s ease)",
+        "Profile image glow uses accent-green consistently",
+        "Card borders use rgba(255,255,255,0.05) consistently",
+        "Remove unused CSS from index.css (original template variables)"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "name": "harness_adaptation",
+      "title": "Harness Engineering Adaptation",
+      "description": "Adapt the AI agent harness from generic full-stack template to match the actual portfolio project. Update AGENTS.md, feature_list.json, docs/, and CHECKPOINTS.md to reflect static React SPA on GitHub Pages.",
+      "acceptance": [
+        "AGENTS.md accurately describes the portfolio project",
+        "feature_list.json contains portfolio-relevant features",
+        "docs/01-conventions.md matches actual JSX/CSS code patterns",
+        "docs/02-architecture.md describes static SPA architecture",
+        "docs/verification.md references correct build commands",
+        "CHECKPOINTS.md references actual project structure",
+        ".opencode/agents/*.md have correct project context",
+        "DESIGN.md exists with complete visual documentation"
+      ],
+      "status": "done"
+    }
+  ]
+}
