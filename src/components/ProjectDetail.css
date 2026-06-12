@@ -1,10 +1,11 @@
-/* src/components/ProjectDetail.css */
+/* =========================================
+   ProjectDetail — Professional Style
+   ========================================= */
 
 .project-detail-section {
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   min-height: 100vh;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
+  background-color: var(--bg-main);
 }
 
 .project-detail-container {
@@ -12,153 +13,165 @@
   margin: 0 auto;
 }
 
-/* Botón de volver */
+/* Back Button */
 .btn-back {
-  display: inline-block;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-weight: 500;
   font-size: 0.9rem;
-  margin-bottom: 3rem;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s ease;
 }
 
 .btn-back:hover {
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
+  text-decoration: underline;
 }
 
-/* Cabecera del Detalle */
+/* Header — Clean Stacked Typography */
 .detail-header {
-  margin-bottom: 4rem;
-  border-left: 4px solid var(--accent-cyan);
-  padding-left: 2rem;
+  margin-bottom: 3rem;
 }
 
 .detail-category {
-  color: #D8B4FE;
-  font-family: var(--font-mono);
+  display: block;
+  color: var(--text-tertiary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
 }
 
 .detail-header h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin: 1rem 0;
-  line-height: 1.1;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  line-height: 1.15;
 }
 
 .detail-summary {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  max-width: 700px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  line-height: 1.7;
 }
 
-/* Estilos específicos para la nueva estructura */
+/* Tech Badges — Blue Pills */
+.tech-stack-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
 
+.tech-badge {
+  display: inline-block;
+  background-color: var(--accent-primary-light);
+  color: var(--accent-primary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+}
+
+/* Section Divider */
+.detail-description h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.6rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Technical Blocks */
 .technical-block {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .detail-ol {
   list-style-position: inside;
   margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.detail-ol li {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .detail-ol li h4 {
-  display: inline; /* Hace que el título esté en la misma línea que el número del ol */
-  font-size: 1.4rem;
-  color: var(--accent-cyan);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  display: inline;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .detail-text {
   margin-left: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
 .detail-ul {
-  list-style-type: none; /* Quitamos el círculo por defecto */
-  margin-left: 1.5rem;
+  list-style-type: disc;
+  margin-left: 2rem;
+  padding: 0;
 }
 
 .detail-ul li {
   position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.6rem;
-  color: var(--text-main);
+  padding-left: 0.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Agregamos un guión verde de terminal como bullet */
 .detail-ul li::before {
-  content: ">";
-  position: absolute;
-  left: 0;
-  color: var(--accent-green);
-  font-family: var(--font-mono);
-  font-weight: bold;
+  content: none;
 }
 
-/* Badges de tecnología en el detalle */
-.tech-stack-detail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 2rem;
-}
-
-.tech-badge {
-  background-color: rgba(16, 185, 129, 0.1);
-  color: var(--accent-green);
-  font-family: var(--font-mono);
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-/* Cuerpo del Contenido */
+/* Detail Content Grid */
 .detail-content {
   display: grid;
-  grid-template-columns: 1fr; /* Una columna por defecto */
-  gap: 4rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
   line-height: 1.8;
 }
 
-.detail-description h2, 
-.detail-description h3 {
-  color: var(--text-main);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.detail-description h2 {
-  font-size: 1.8rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 0.5rem;
-}
-
 .detail-description p {
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  max-width: none;
 }
 
-/* Sección de Enlaces en el detalle */
+/* Links Section */
 .detail-links {
   display: flex;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1.5rem 2rem;
   background-color: var(--bg-card);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-/* Estado de Error */
+/* Error State */
 .error-case {
   display: flex;
   align-items: center;
@@ -166,16 +179,18 @@
   text-align: center;
 }
 
-/* Responsividad */
-@media (min-width: 768px) {
-  /* Podrías habilitar un layout de dos columnas aquí si tienes mucha info lateral */
-}
-
-@media (max-width: 480px) {
-  .detail-header {
-    padding-left: 1rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .project-detail-section {
+    padding: 2rem 1rem;
   }
+
+  .detail-header h1 {
+    font-size: 1.8rem;
+  }
+
   .detail-links {
     flex-direction: column;
+    align-items: center;
   }
 }

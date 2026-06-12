@@ -11,9 +11,6 @@ const ProfileHeader = () => {
       </div>
 
       <div className="profile-text-content">
-        {/* El toque del \n */}
-        <p className="tech-greeting">{">"} console.log("Hola, soy: \n");</p>
-        
         <h1 className="dev-name">Mateo Ryhr</h1>
         <h2 className="dev-title">
           Fullstack Backend Dev <span className="accent-color">|</span> React & React Native

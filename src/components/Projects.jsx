@@ -7,9 +7,7 @@ const Projects = () => {
   return (
     <section className="projects-section">
       <div className="projects-container">
-        <h2 className="section-title">
-          <span className="code-accent">&gt;</span> Proyectos
-        </h2>
+        <h2 className="section-title">Proyectos</h2>
         
         <div className="projects-grid">
           {projects.map((project) => (
@@ -22,13 +20,10 @@ const Projects = () => {
                 
                 <p>{project.description}</p>
                 
-                {/* 2. Tecnologías con separador ' | ' */}
+                {/* 2. Tecnologías como pills */}
                 <div className="tech-stack">
-                  {project.tech.map((item, index) => (
-                    <React.Fragment key={item}>
-                      <span className="tech-item">{item}</span>
-                      {index < project.tech.length - 1 && <span className="separator"> | </span>}
-                    </React.Fragment>
+                  {project.tech.map((item) => (
+                    <span key={item} className="tech-pill">{item}</span>
                   ))}
                 </div>
                 

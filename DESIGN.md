@@ -8,18 +8,18 @@
 
 ## 1. Design Philosophy
 
-**"Terminal Modern"** — The portfolio blends a developer's terminal aesthetic
-with a sleek, modern dark-mode UI. It evokes the feeling of a developer's
-workspace: dark backgrounds, glowing accents, monospaced code elements,
-and subtle tech-inspired patterns.
+**"Professional Clarity"** — The portfolio is designed to communicate
+competence, trustworthiness, and technical skill in a way that resonates
+with both technical hiring managers and non-technical HR professionals.
+Clean, minimal, and accessible — the design steps back so the work speaks.
 
 | Pillar | Description |
 |--------|-------------|
-| **Dark-first** | Deep navy/charcoal background (`#0F172A`) — no light mode |
-| **Console cues** | `>` prefix, green terminal accent, monospace fonts for tech elements |
-| **Tech glow** | Cyan and green neon-like glow effects on hover and focus |
-| **Card-based** | Content organized in elevated cards with subtle borders |
-| **Data-driven** | UI rendered from static JS data files — no hardcoded content |
+| **Light-first** | Clean white/light background (`#FAFAFA`) — familiar, professional, print-like |
+| **Typography-driven** | Hierarchy and whitespace do the heavy lifting, not decorative elements |
+| **Trustworthy blues** | Blue accents evoke reliability, professionalism, and clarity |
+| **Subtle elegance** | Soft shadows, refined borders, no neon or glow effects |
+| **Content-forward** | The projects and skills are the focus — the UI is invisible |
 
 ---
 
@@ -29,31 +29,32 @@ and subtle tech-inspired patterns.
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--bg-dark` | `#0F172A` | Main background (deep navy) |
-| `--bg-card` | `#1E293B` | Card backgrounds, slightly lighter than main bg |
-| `--text-main` | `#F8FAFC` | Primary text (off-white) |
-| `--text-muted` | `#94A3B8` | Secondary text, descriptions, metadata |
+| `--bg-main` | `#FAFAFA` | Main background (warm off-white, easier on the eyes than pure white) |
+| `--bg-card` | `#FFFFFF` | Card and container backgrounds |
+| `--bg-muted` | `#F3F4F6` | Subtle background for sections or hover states |
+| `--text-primary` | `#1F2937` | Primary text (dark slate, high contrast but softer than pure black) |
+| `--text-secondary` | `#6B7280` | Secondary text, descriptions, metadata |
+| `--text-tertiary` | `#9CA3AF` | Placeholder/disabled text, subtle labels |
+| `--border-light` | `#E5E7EB` | Borders, dividers, card outlines |
+| `--border-hover` | `#D1D5DB` | Border on hover state |
 
 ### Accent Colors
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--accent-cyan` | `#22D3EE` | Primary accent: buttons, links, borders, code highlights |
-| `--accent-green` | `#10B981` | Secondary accent: tech tags, console text, success indicators |
+| `--accent-primary` | `#2563EB` | Primary accent: links, buttons, key highlights |
+| `--accent-primary-dark` | `#1D4ED8` | Hover state for primary accent |
+| `--accent-primary-light` | `#DBEAFE` | Subtle background for highlighted elements |
+| `--accent-success` | `#059669` | Success indicators, tech tags, positive signals |
 
 ### Derived Colors (used inline with `rgba()`)
 
 | Context | Value | Usage |
 |---------|-------|-------|
-| Card border | `rgba(255, 255, 255, 0.05)` | Subtle card outlines on dark bg |
-| Card border hover | `var(--accent-cyan)` | Cyan border on card hover |
-| Tech tag bg | `rgba(16, 185, 129, 0.1)` | Green-tinted background for tech badges |
-| Tech tag border | `rgba(16, 185, 129, 0.2)` | Subtle green border on tech badges |
-| Cyan glow | `rgba(34, 211, 238, 0.2)` | Button and image glow effects |
-| Separator | `rgba(255, 255, 255, 0.1)` | Dividers between sections |
-| Category text | `#D8B4FE` | Project category labels (light purple) |
-| Link color | `#4fc1ff` | Footer email link (blue) |
-| Terminal dot | `#27c93f` | Status indicator dot (green) |
+| Card shadow | `rgba(0, 0, 0, 0.04)` | Subtle card elevation |
+| Card shadow hover | `rgba(0, 0, 0, 0.08)` | Slightly deeper shadow on hover |
+| Button shadow | `rgba(37, 99, 235, 0.2)` | Primary button glow |
+| Overlay | `rgba(0, 0, 0, 0.02)` | Very subtle section background shift |
 
 ---
 
@@ -62,59 +63,76 @@ and subtle tech-inspired patterns.
 ### Font Stack
 
 ```
---font-sans: 'Inter', system-ui, -apple-system, sans-serif;
---font-mono: 'JetBrains Mono', Consolas, monospace;
+--font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+--font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 ```
 
-| Usage | Font | Weight | Size |
-|-------|------|--------|------|
-| Headings (h1) | Inter | 800 (ExtraBold) | `clamp(2.5rem, 5vw, 4rem)` |
-| Section titles (h2) | Inter | 800 | `clamp(1.8rem, 3vw, 2rem)` |
-| Card titles (h3) | Inter | 800 | 1.6rem |
-| Body text | Inter | 400 (Regular) | 1.125rem |
-| Muted body | Inter | 400 | 1.05rem |
-| Console prefix | JetBrains Mono | 700 (Bold) | 1.1rem |
-| Tech tags | JetBrains Mono | 400 | 0.8rem – 0.9rem |
-| Buttons | JetBrains Mono | 700 | 0.9rem |
-| Navigation links | JetBrains Mono | 600 | 0.9rem |
-| Detail headings | JetBrains Mono | — | 1.4rem |
+Inter is chosen for its excellent readability at various sizes, its
+professional appearance, and its availability as a variable font (light
+weight = smaller file).
+
+### Type Scale
+
+| Usage | Font | Weight | Size | Line Height | Letter Spacing |
+|-------|------|--------|------|-------------|----------------|
+| Name / Hero heading (h1) | Inter | 700 (Bold) | `clamp(2.2rem, 4vw, 3.5rem)` | 1.15 | `-0.02em` |
+| Section title (h2) | Inter | 600 (Semibold) | `clamp(1.5rem, 2.5vw, 2rem)` | 1.25 | `-0.01em` |
+| Card title (h3) | Inter | 600 | `1.25rem` | 1.3 | `0` |
+| Detail subtitle (h4) | Inter | 600 | `1.1rem` | 1.35 | `0` |
+| Body text | Inter | 400 (Regular) | `1rem` | 1.6 | `0` |
+| Body large (hero description) | Inter | 400 | `1.125rem` | 1.6 | `0` |
+| Small / metadata | Inter | 400 | `0.875rem` | 1.5 | `0` |
+| Caption / tags | Inter | 500 (Medium) | `0.8rem` | 1.4 | `0.01em` |
+| Code / tech tags | JetBrains Mono | 500 | `0.8rem` | 1.4 | `0` |
+| Button text | Inter | 600 | `0.9rem` | 1 | `0.01em` |
+| Nav / links | Inter | 500 | `0.9rem` | 1 | `0` |
 
 ### Import
 
 Fonts are imported once in `src/App.css` via Google Fonts:
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 ```
 
 ---
 
 ## 4. Spacing & Layout
 
-### General Spacing
+### Spacing Scale
+
+A consistent 4px spacing scale is used throughout:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--space-xs` | `0.5rem` (8px) | Tight gaps, icon spacing |
+| `--space-sm` | `1rem` (16px) | Component internal padding |
+| `--space-md` | `1.5rem` (24px) | Between related elements |
+| `--space-lg` | `2rem` (32px) | Section to card, card padding |
+| `--space-xl` | `3rem` (48px) | Between major sections |
+| `--space-2xl` | `5rem` (80px) | Page section separation |
+
+### Container Widths
 
 | Context | Value |
 |---------|-------|
-| Page max width | 1000px – 1126px (centered) |
-| Section padding | `2rem` horizontal, `4rem – 8rem` vertical |
-| Card padding | `2rem – 2.5rem` |
-| Grid gap | `2rem – 2.5rem` |
-| Component gap | `1.25rem – 1.5rem` |
+| Page content max-width | `1024px` |
+| Text content max-width | `720px` (for readability) |
+| Card max-width | `480px` |
 
 ### Breakpoints
 
 | Breakpoint | Target |
 |------------|--------|
 | `max-width: 768px` | Tablet / small laptop |
-| `max-width: 600px` | Large phone |
+| `max-width: 640px` | Large phone |
 | `max-width: 480px` | Small phone |
 
 ### Layout Patterns
 
-- **Sections**: centered container with `max-width: 1000px` and `margin: 0 auto`
-- **Grids**: `display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))`
-  — auto-responsive, no media query needed for column count
-- **Flexbox**: used for inline layouts (buttons, links, card headers)
-- **Vertical rhythm**: controlled by `margin-bottom` on headings and paragraphs
+- **Sections**: centered container with `max-width: 1024px`, `padding: var(--space-2xl) var(--space-lg)`, and `margin: 0 auto`
+- **Grids**: `display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr))` with `gap: var(--space-lg)`
+- **Whitespace**: generous padding around all content — nothing feels cramped
+- **Vertical rhythm**: consistent `margin-bottom` using the spacing scale
 
 ---
 
@@ -123,159 +141,181 @@ Fonts are imported once in `src/App.css` via Google Fonts:
 ### 5.1 ProfileHeader (Hero)
 
 ```
-┌────────────────────────────────────────────┐
-│        ┌──────────┐                        │
-│        │  Photo   │  > console.log(...)    │
-│        │ (circle) │                        │
-│        └──────────┘  Mateo Ryhr            │
-│                       Fullstack Backend Dev │
-│                       │ React & React Native│
-│                                              │
-│                       Description paragraph │
-│                                              │
-│  [Explorar Proyectos]  [GitHub]             │
-└────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────┐
+│                                                             │
+│    ┌──────────┐                                             │
+│    │  Photo   │  Mateo Ryhr                                 │
+│    │ (circle) │  Fullstack Backend Developer                │
+│    │          │  React & React Native                       │
+│    └──────────┘                                             │
+│                                                             │
+│    Specialized in scalable API architecture with Node.js    │
+│    and cross-platform application development. Passionate   │
+│    about building complete solutions from database design   │
+│    to end-user experience.                                  │
+│                                                             │
+│    [View Projects]  [GitHub Profile]                        │
+│                                                             │
+└────────────────────────────────────────────────────────────┘
 ```
 
 **Visual details:**
-- Profile photo: 180px × 180px, circular (`border-radius: 50%`), green border (`4px solid var(--accent-green)`), cyan glow (`box-shadow: 0 0 25px rgba(16, 185, 129, 0.15)`)
-- Console greeting: green `var(--accent-green)`, monospace font, `>` prefix
-- Name: extra large clamp font, off-white
-- Title: muted gray, regular weight, cyan pipe separator
-- Description: muted, max-width 650px, strong elements in white
-- Primary button: cyan filled bg → transparent on hover (bg swap)
-- Secondary button: transparent with white border → brighter on hover
+- Profile photo: 140px × 140px, circular (`border-radius: 50%`), with a subtle border (`3px solid var(--border-light)`)
+- Name: largest text on page (h1), bold, `var(--text-primary)`, prominent
+- Title: `var(--text-secondary)`, regular weight, below name
+- Description: `var(--text-secondary)`, max-width 640px, generous bottom margin
+- Primary CTA: `var(--accent-primary)` blue background, white text, rounded (`8px`), with subtle hover darkening
+- Secondary CTA: white background, `var(--accent-primary)` border and text
+- Layout: photo left, text right on desktop; stacked vertically on mobile
 
 ### 5.2 Skills Cards
 
 ```
-┌──────────────────────┐
-│  [icon]  Category    │  ← header with bottom border
-├──────────────────────┤
-│  Tag1  Tag2  Tag3    │  ← flex-wrap, monospace tags
-│  Tag4  Tag5         │
-└──────────────────────┘
+┌─────────────────────────┐
+│  📱  Mobile Development │  ← icon + title, no bottom border
+│─────────────────────────│
+│  React Native           │  ← clean tags, medium weight
+│  Expo                   │
+│  UI/UX Mobile           │
+│  Play Store Deploy      │
+└─────────────────────────┘
 ```
 
 **Visual details:**
-- Card: `--bg-card` background (1px border, `rgba(255,255,255,0.05)`, 8px radius)
-- Hover: lift 5px (`translateY(-5px)`), accent border color
-- Header: icon (1.5rem) + category title, bottom border separator
-- Tags: monospace, green text on green-tinted background (`rgba(99,102,241,0.1)`), 4px radius
-- Grid: `auto-fit, minmax(240px, 1fr)`
+- Card: white background (`#FFFFFF`), soft shadow (`0 1px 3px rgba(0,0,0,0.04)`), `10px` border-radius
+- Hover: subtle shadow elevation (`0 4px 12px rgba(0,0,0,0.08)`), slight translateY(-2px)
+- Header: icon (`1.4rem`) + category title (`var(--text-primary)`, semibold), no separator, just `gap: 0.6rem`
+- Tags: `var(--accent-primary)` text on `var(--accent-primary-light)` background, `6px` border-radius, `0.3rem 0.7rem` padding, clean pill shape
+- Grid: `auto-fit, minmax(260px, 1fr)`
 
 ### 5.3 Project Cards
 
 ```
 ┌──────────────────────────────────────┐
 │  Project Title                        │
-│  category-label                       │
+│  Category • Category                  │
 │                                      │
-│  Description paragraph               │
+│  Brief description of the project    │
+│  that explains what it does and      │
+│  the problem it solves.              │
 │                                      │
-│  Tech1 | Tech2 | Tech3              │  ← green monospace
+│  React Native  Kotlin               │  ← clean pill tags
 │                                      │
-│  [Ver Detalles y Arquitectura →]    │  ← cyan dashed btn
-│  ─────────────────────────────────  │  ← separator line
-│  > GitHub                            │  ← console-prefix links
-│  > Web                               │
-│  > En fase de pruebas...            │  ← italic if empty
+│  ─────────────────────────────────  │  ← subtle divider
+│  Details & Architecture  →          │  ← blue link
+│  GitHub  Web  Play Store            │  ← inline links
 └──────────────────────────────────────┘
 ```
 
 **Visual details:**
-- Card: `--bg-card`, 12px radius, 2.5rem padding, 1px subtle border
-- Hover: lift 5px, border turns cyan
-- Title: 1.6rem, bold, off-white
-- Category: `#D8B4FE` (purple), monospace, uppercase-ish
-- Tech stack: green items (`var(--accent-green)`), muted ` | ` separators, monospace
-- "Ver Detalles": cyan dashed border → solid on hover, shifts right 5px
-- Links section: separated by `1px solid rgba(255,255,255,0.1)` divider
-- All links have `> ` console prefix in muted color, turn cyan on hover
-- Empty Play Store: italic muted text instead of link
-- Grid: `auto-fit, minmax(320px, 1fr)`, 2.5rem gap
+- Card: white background, `12px` border-radius, `1.8rem` padding, soft shadow (`0 1px 3px rgba(0,0,0,0.04)`)
+- Hover: shadow deepens (`0 8px 25px rgba(0,0,0,0.08)`), slight lift (`translateY(-3px)`), no border color change
+- Title: `var(--text-primary)`, semibold, `1.25rem`
+- Category: `var(--text-tertiary)`, small, `•` separator between multiple categories
+- Description: `var(--text-secondary)`, `0.95rem`, clean paragraph
+- Tech tags: `var(--accent-primary)` text on very light blue background (`var(--accent-primary-light)`), `6px` radius, pill shape
+- "Details": `var(--accent-primary)` blue link with `→` arrow, no border, no button — just a styled link
+- Links section: separated by `1px solid var(--border-light)` divider, inline horizontal layout
+- Links: `var(--text-secondary)` color, clean underline-on-hover, no console prefix
+- Empty Play Store: shown as disabled/placeholder text instead of italic
+- Grid: `auto-fit, minmax(340px, 1fr)`, `1.5rem` gap
 
 ### 5.4 ProjectDetail
 
 ```
-← Volver al portafolio          (top left, muted)
+←  Back to Portfolio          (top left, secondary text)
 
-┌── (cyan left border, 4px)
-│  CATEGORY                     (purple, uppercase mono)
-│  Project Title                (large clamp h1)
-│  Description                  (muted, 700px max)
-│
-│  [Tech] [Badge] [Badge]      (green badges)
-└──
+Project Name                  (h1, primary text)
+Category                      (small, tertiary text)
 
-## Ingeniería y Desafíos Técnicos
+Brief description paragraph   (secondary text, max 720px)
 
-1. TITLE IN CYAN UPPERCASE     (ordered list)
-   Italic description
-   > Item bullet               (green > prefix)
-   > Item bullet
+Node.js  React  PostgreSQL    (clean pill tags)
 
-[Ver Código en GitHub]         (secondary button)
+───
+
+## Engineering & Technical Challenges
+
+1. Challenge Title             (bold, primary text)
+   Context paragraph explaining the problem.
+   • Solution item in plain text
+   • Another solution item
+
+[View on GitHub]              (primary button, blue)
 ```
 
 **Visual details:**
-- Page: full `min-height: 100vh`, dark bg
-- Back button: muted, monospace, turns cyan on hover
-- Header block: 4px cyan left border, 2rem left padding
-- Category: purple (#D8B4FE), uppercase, monospace, letter-spaced
-- Title: `clamp(2.5rem, 5vw, 3.5rem)`, bold
-- Section h2: `1.8rem`, bottom border separator
-- Ordered list titles: cyan uppercase, inline with `ol` number
-- Description text: italic, muted, left margin
-- Bullet items: `>` green console prefix, no default list style
-- Tech badges: green text on green-tinted bg, 4px radius, 1px border
-- Links section: `--bg-card` background, 12px radius, centered
+- Page: white/light background, generous padding
+- Back link: `var(--text-secondary)` with `←` arrow, underline on hover, blue on hover
+- Header block: no left border accent — just clean stacked typography
+- Title: `clamp(2rem, 3.5vw, 2.8rem)`, bold, `var(--text-primary)`
+- Section divider: thin `1px solid var(--border-light)` line
+- Technical sections: clean numbered titles with standard bullet lists (`•`)
+- Bullet items: standard `•` disc (no console prefix)
+- Code references: `JetBrains Mono` inline only for actual code/CLI snippets
+- Tech badges: same pill style as project cards (blue on light blue)
+- Links section: white card, subtle shadow, secondary button style
 
 ### 5.5 Footer
 
 ```
-┌──────────────────────────────────────────┐
-│  © 2025 — Construido con React por Mateo │
-│  ● Sistema operativo: online             │  ← pulsing green dot
-│                                          │
-│  LinkedIn  GitHub  mateoryhr29@gmail.com │
-└──────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                                                              │
+│  © 2025 Mateo Ryhr. Built with React.                       │
+│                                                              │
+│  LinkedIn  •  GitHub  •  mateoryhr29@gmail.com              │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 **Visual details:**
-- Background: `#0a0a0a` (darker than main bg)
-- Top border: `1px solid #222`
-- Padding: `3rem 2rem`, margin-top: `4rem`
-- Text color: `#888`
-- Status dot: 8px green circle with pulse animation (scale + opacity)
-- Email: monospace, `#007acc` blue
-- Links: gray → white on hover
-- Mobile: stacks vertically at 600px
+- Background: `#FFFFFF` (matching cards), with `1px solid var(--border-light)` top border
+- Padding: `2.5rem 2rem`
+- Layout: two rows — copyright on top, links below
+- Text: `var(--text-tertiary)`, small and unobtrusive
+- Links: `var(--text-secondary)`, `•` separator between them, `var(--accent-primary)` on hover
+- Email: same styling as other links (no special blue/monospace treatment)
+- No status indicator, no pulsing dots, no system status text
+- Mobile: single column, centered
 
 ---
 
 ## 6. Interaction States
 
-| Element | Normal | Hover | Focus |
-|---------|--------|-------|-------|
-| Primary button | Cyan fill, dark text | Transparent, cyan text, glow | Same as hover |
-| Secondary button | Transparent, white border | Solid white border, subtle bg | Same as hover |
-| Project card | Default card | Lift 5px, cyan border | — |
-| Skill card | Default card | Lift 5px, accent border | — |
-| "Ver detalles" | Cyan dashed border | Solid fill, bg swap, shift right 5px, glow | Same as hover |
-| Link (`> link`) | Muted `>` + white text | Cyan text and prefix | Same as hover |
-| Back button | Muted text | Cyan text | Same as hover |
-
 ### Transition Standard
 
-All hover/focus transitions: `0.3s ease` (unless specified otherwise).
+All hover/focus transitions: `0.2s ease` (snappier, more professional feel than 0.3s).
 
-### Glow Effect Standard
+### Card Interactions
+
+| Element | Normal | Hover | Focus |
+|---------|--------|-------|-------|
+| Project/Skill card | White bg, soft shadow | Elevated shadow, lift 3px | Same as hover |
+| Primary button | Blue fill, white text | Darker blue (`var(--accent-primary-dark)`) | Ring outline |
+| Secondary button | White bg, blue border+text | Light blue bg (`var(--accent-primary-light)`) | Ring outline |
+| Text link | `var(--accent-primary)` | Underline | Underline + ring |
+| Inline link (cards) | `var(--text-secondary)` | `var(--accent-primary)`, underline | — |
+| Back button | `var(--text-secondary)` | `var(--accent-primary)`, underline | — |
+| Tech tag | Blue text on light blue bg | Slightly darker bg | — |
+
+### Shadow Scale
 
 ```css
-box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);   /* cyan glow (buttons) */
-box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);  /* green glow (image) */
+/* Card — normal */
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+/* Card — hover */
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+/* Button — primary */
+box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
 ```
+
+### Focus States
+
+- All interactive elements have visible focus indicators
+- Buttons and links: `outline: 2px solid var(--accent-primary)` with `outline-offset: 2px`
+- Cards (if clickable): same outline pattern
 
 ---
 
@@ -285,15 +325,15 @@ box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);  /* green glow (image) */
 
 | File | What it defines |
 |------|----------------|
-| `src/App.css` `:root` | Main design tokens (bg/text/accent colors, fonts) |
-| `src/styles/variables.css` | Legacy/override variables (partially unused) |
+| `src/App.css` `:root` | All design tokens (colors, fonts, spacing, shadows) |
+| `src/components/*.css` | Component-scoped styles referencing `var(--*)` tokens |
 
 ### File Organization
 
 ```
-src/App.css               → Global reset, CSS variables, typography, shared classes
-src/index.css              → Legacy entry CSS (keep minimal)
-src/styles/variables.css   → Secondary variable definitions
+src/App.css               → CSS reset, :root variables, typography, shared utilities
+src/index.css              → Legacy entry CSS (migrate to App.css gradually)
+src/styles/variables.css   → Removed or merged into App.css
 src/components/*.css       → Component-scoped styles (one per component)
 ```
 
@@ -301,23 +341,32 @@ src/components/*.css       → Component-scoped styles (one per component)
 
 **Good (uses variables):**
 ```css
-.skill-item {
-  color: var(--accent-green);
-  font-family: var(--font-mono);
+.skill-tag {
+  color: var(--accent-primary);
+  background: var(--accent-primary-light);
+  font-family: var(--font-sans);
 }
 ```
 
-**Good (rgba for specific effects):**
+**Good (clean shadows):**
 ```css
 .project-card {
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
 }
 ```
 
-**Bad (hardcoded hex that should be a variable):**
+**Bad (terminal holdovers):**
 ```css
-.some-class {
-  color: #22D3EE; /* should be var(--accent-cyan) */
+.link::before {
+  content: "> "; /* Remove console prefix */
+}
+```
+
+**Bad (neon/glow effects):**
+```css
+button {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2); /* Remove glow */
 }
 ```
 
@@ -327,36 +376,40 @@ src/components/*.css       → Component-scoped styles (one per component)
 
 | Component | Mobile (< 768px) | Desktop (≥ 768px) |
 |-----------|------------------|-------------------|
-| ProfileHeader | Stack vertically | Photo + text side by side |
-| Profile image | 140px circle | 180px circle |
+| ProfileHeader | Stack vertically, center text | Photo left, text right |
+| Profile image | 110px circle | 140px circle |
 | Skills grid | Single column | Multi-column (auto-fit) |
 | Projects grid | Single column | Multi-column (auto-fit) |
-| Footer links | Stack below copyright | Horizontal layout |
-| ProjectDetail header | 1rem left padding | 2rem left padding |
-| Detail links | Stack vertically | Horizontal row |
-| Action buttons (hero) | Center aligned | Left aligned |
+| Footer links | Stack vertically with `•` sep | Horizontal row |
+| ProjectDetail | Standard padding | Wider content area |
+| Buttons | Full-width on very small screens | Inline |
+| Section padding | `3rem 1rem` | `5rem 2rem` |
 
 ---
 
 ## 9. Iconography
 
-- **Skill icons**: Emoji icons (⚙️, 💻, 📱, 🧠, 🤝) in skill cards
-- **Console prefix**: `> ` text character (not an icon) used for links and list items
-- **Navigation indicator**: `→ ` arrow character on "Ver Detalles" link
-- **Status indicator**: CSS-only pulsing dot (not an image)
-- **No SVG icons** are currently used in the component code (only in `public/` and `src/assets/`)
+- **Skill icons**: Emoji icons (⚙️, 💻, 📱, 🧠, 🤝) — kept from previous design, they add warmth
+- **Navigation indicator**: `→` arrow character on "Details" link — standard, clean
+- **Separator**: `•` middle-dot between categories and footer links
+- **No console prefixes** (`>` removed from all links and list items)
+- **No pulsing indicators** (status dot removed from footer)
+- **No decorative icons** — content is the decoration
+- **All icons are inline text or emoji** — no external icon libraries
 
 ---
 
 ## 10. Design Rules Summary
 
-1. **Always use `var(--*)` for colors and fonts** — never hardcode hex values
-2. **Prefer `clamp()` for font sizes** — fluid typography, no fixed sizes
-3. **Cards always have hover effects** — lift + border color change
-4. **Monospace for anything "code/tag/tech"** — JetBrains Mono
-5. **Sans-serif for body text** — Inter
-6. **Dark bg only** — no light mode, no `prefers-color-scheme: light` overrides
-7. **Transitions are 0.3s ease** — consistent motion language
-8. **Console prefix `>`** for links and list items — reinforces terminal theme
-9. **Accent cyan for interactive elements**, accent green for static tech indicators
-10. **Component-scoped CSS files** — no global class name pollution
+1. **Always use `var(--*)` for colors, spacing, and fonts** — never hardcode values
+2. **Light background is the default** — white cards on warm off-white (`#FAFAFA`)
+3. **Blue is the primary accent** — `#2563EB` for links, buttons, highlights
+4. **No neon, no glow, no terminal aesthetic** — professional subtlety
+5. **Cards use shadows, not colored borders** — elevation indicates interactivity
+6. **Transitions are `0.2s ease`** — snappier, more refined
+7. **Standard typography hierarchy** — no monospace for decorative elements
+8. **No console prefixes** (`>` removed) — links are clean text
+9. **Generous whitespace** — let content breathe
+10. **Content-forward** — the UI should be invisible; projects and skills speak first
+11. **Accessible by default** — sufficient color contrast, visible focus states, semantic HTML
+12. **All interactive elements have hover and focus states** — nothing feels dead

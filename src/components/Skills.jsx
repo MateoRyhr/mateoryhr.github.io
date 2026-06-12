@@ -6,9 +6,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills-section">
       <div className="skills-container">
-        <h2 className="section-title">
-          <span className="code-accent">&gt;</span> Habilidades
-        </h2>
+        <h2 className="section-title">Habilidades</h2>
         
         <div className="skills-grid">
           {skills.map((category, index) => (

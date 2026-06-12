@@ -132,49 +132,20 @@
       "status": "pending"
     },
     {
-      "id": 9,
-      "name": "performance_optimization",
-      "title": "Performance & SEO Optimization",
-      "description": "Optimize bundle size, add lazy loading for routes, set up meta tags for SEO, ensure accessibility compliance, and add performance monitoring.",
+      "id": 12,
+      "name": "professional_css_redesign",
+      "title": "Professional CSS Redesign",
+      "description": "Implement the new professional-minimalist visual style across all components. Convert from dark-terminal theme to light-clean theme. Update all CSS files, remove console prefixes, replace glow effects with shadows, and restructure color variables in App.css.",
       "acceptance": [
-        "React.lazy() for ProjectDetail page to reduce initial bundle",
-        "Meta tags for OG image, description, and keywords in index.html",
-        "Lighthouse scores ≥ 90 for Performance, Accessibility, SEO",
-        "Image assets are optimized (webp or compressed png)",
-        "Semantic HTML throughout all components",
-        "ARIA labels on interactive elements"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": 10,
-      "name": "dark_theme_refinement",
-      "title": "Dark Theme & Visual Refinement",
-      "description": "Refine the existing dark theme with consistent color tokens, smooth transitions, and a unified visual language across all components. Ensure no light-mode vestiges remain.",
-      "acceptance": [
-        "All CSS uses custom properties from variables.css or App.css :root",
-        "No hardcoded color values remain in component CSS files",
-        "Smooth transition on theme-related properties (0.3s ease)",
-        "Profile image glow uses accent-green consistently",
-        "Card borders use rgba(255,255,255,0.05) consistently",
-        "Remove unused CSS from index.css (original template variables)"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": 11,
-      "name": "harness_adaptation",
-      "title": "Harness Engineering Adaptation",
-      "description": "Adapt the AI agent harness from generic full-stack template to match the actual portfolio project. Update AGENTS.md, feature_list.json, docs/, and CHECKPOINTS.md to reflect static React SPA on GitHub Pages.",
-      "acceptance": [
-        "AGENTS.md accurately describes the portfolio project",
-        "feature_list.json contains portfolio-relevant features",
-        "docs/01-conventions.md matches actual JSX/CSS code patterns",
-        "docs/02-architecture.md describes static SPA architecture",
-        "docs/verification.md references correct build commands",
-        "CHECKPOINTS.md references actual project structure",
-        ".opencode/agents/*.md have correct project context",
-        "DESIGN.md exists with complete visual documentation"
+        "App.css :root variables updated to new professional palette (light bg, blue accent, new spacing tokens)",
+        "ProfileHeader: remove console greeting, update photo border, restyle buttons to blue primary/secondary",
+        "Skills: update card styles (white bg, shadow), skill tags to blue pills",
+        "Projects: remove '>' prefixes from links, update tech tags to blue pills, remove glow from card hovers",
+        "ProjectDetail: remove green '>' bullets from lists, update tech badges, remove cyan left border",
+        "Footer: remove pulsing green dot, remove status text, use white bg with border-top",
+        "index.css cleaned up (remove legacy template variables)",
+        "npm run build exits 0, npm run lint exits 0",
+        "All components visually verified with new style"
       ],
       "status": "done"
     }

@@ -1,8 +1,10 @@
-/* src/styles/variables.css */
+/* styles/variables.css — Legacy file kept for reference.
+   All design tokens are now defined in src/App.css :root.
+   This file is preserved for backward compatibility but
+   not actively used. New code should reference App.css variables. */
+
 :root {
-  --bg-dark: #121212;
-  --bg-card: #1e1e1e;
-  --accent-blue: #007acc;
-  --text-main: #e0e0e0;
-  --terminal-green: #27c93f;
+  --bg-dark: #0F172A;
+  --bg-card: #1E293B;
+  --text-main: #F8FAFC;
 }
