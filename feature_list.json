@@ -148,6 +148,23 @@
         "All components visually verified with new style"
       ],
       "status": "done"
+    },
+    {
+      "id": 13,
+      "name": "automation_portfolio",
+      "title": "Reorientación a Automatización de Procesos + Proyecto n8n + Demo Interactivo",
+      "description": "Reorientar el portfolio hacia automatización de procesos administrativos/contables/RRHH. Agregar proyecto n8n de facturación ARCA, nueva categoría de skills, actualizar perfil, y crear formulario demo interactivo que POSTea al webhook de n8n para que RRHH reciba una factura ficticia.",
+      "acceptance": [
+        "ProfileHeader actualizado: título incluye 'Automatización de Procesos', descripción menciona n8n y automatización",
+        "skills-data.js incluye nueva categoría 'Automatización' con n8n, Webhooks, Google APIs, etc.",
+        "projects.js incluye proyecto 'Sistema de Facturación Automatizada ARCA' con detalle técnico completo",
+        "src/data/config.js existe con la URL del webhook de n8n parametrizada",
+        "AutomationDemo.jsx + AutomationDemo.css: formulario con email, submit a webhook n8n, estados loading/success/error",
+        "Home.jsx incluye sección <AutomationDemo /> después de Projects",
+        "npm run build y npm run lint pasan sin errores",
+        "Documentación actualizada (architecture.md, DESIGN.md, conventions.md)"
+      ],
+      "status": "done"
     }
   ]
 }

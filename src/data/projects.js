@@ -3,6 +3,53 @@
 export const projects = [
   {
     id: 1,
+    title: "Sistema de Facturación Automatizada ARCA",
+    description: "Automatización integral de emisión de facturas electrónicas mediante n8n. Un webhook recibe datos desde Google Sheets y orquesta la facturación en ARCA, el almacenamiento en Google Drive y la persistencia en PostgreSQL.",
+    longDescription: "Workflow de automatización diseñado para eliminar por completo la carga manual de facturas electrónicas. Cuando un cliente completa un formulario de Google Sheets, un Apps Script envía un POST con los datos a un webhook de n8n, que se encarga de emitir la factura en ARCA, guardar el comprobante en Google Drive, registrar la operación en PostgreSQL, y notificar al cliente por email.",
+    technicalDetails: [
+      {
+        title: "Arquitectura del Workflow: Trigger por Webhook",
+        description: "El flujo comienza cuando un usuario completa un formulario en Google Sheets. Un Apps Script personalizado captura el evento onSubmit y construye un payload JSON que envía mediante POST al webhook de n8n expuesto con ngrok.",
+        items: [
+          "Recepción del payload: n8n recibe el JSON con Razón Social, CUIT, Email, Importe, Alícuota IVA y Condición de Venta. Cada campo es validado y tipado antes de continuar.",
+          "Canal de exposición segura: n8n corre en un servidor self-hosted y se expone a internet mediante ngrok, que provee un túnel HTTPS con URL pública dinámica.",
+          "Estructura del payload: Incluye un submission_id único generado con el patrón gfs_<cuit>_<email>_<importe>_<bucket_temporal>, permitiendo trazabilidad extremo a extremo."
+        ]
+      },
+      {
+        title: "Integración con ARCA (Facturación Electrónica Argentina)",
+        description: "El corazón del workflow es la integración con los servicios web de ARCA (ex AFIP) para la emisión legal de facturas electrónicas con validez fiscal.",
+        items: [
+          "Autenticación WSAA: El workflow se autentica contra el webservice de ARCA usando un certificado digital (X.509), obteniendo un Ticket de Acceso (TA) con vigencia limitada que se reutiliza mientras sea válido.",
+          "Construcción del comprobante: Se ensambla el XML del comprobante (Factura A, B, C según Correspondiente) con todos los datos impositivos: alícuotas de IVA, condiciones de venta, montos neto + IVA + total.",
+          "Manejo de errores y reintentos: Si ARCA devuelve un error (por ejemplo, servidor temporalmente no disponible), el workflow reintenta con backoff exponencial hasta 3 veces antes de escalar el error a una alerta."
+        ]
+      },
+      {
+        title: "Sincronización Multi-Sistema: Drive, Sheets y PostgreSQL",
+        description: "Emitida la factura, el workflow debe asegurar que todos los sistemas reflejen el nuevo estado de forma consistente.",
+        items: [
+          "Archivado en Google Drive: El comprobante PDF generado por ARCA se sube automáticamente a una carpeta estructurada por cliente y mes en Google Drive, garantizando un backup inmutable de todas las facturas emitidas.",
+          "Registro en PostgreSQL: Cada transacción se persiste en una base de datos relacional con el esquema completo: datos del comprobante, estado (emitido / rechazado / pendiente), y referencias cruzadas al ID de ARCA y la URL del PDF en Drive.",
+          "Actualización de Google Sheets: La fila original del formulario se actualiza con el estado de la factura, el CUIT del comprobante emitido y un link directo al PDF, cerrando el círculo de información para el operador administrativo."
+        ]
+      },
+      {
+        title: "Notificación al Cliente y Cierre del Ciclo",
+        description: "El flujo culmina con la comunicación al cliente y la disponibilidad inmediata del comprobante.",
+        items: [
+          "Email automático: Se envía un correo al cliente con la factura PDF adjunta y un resumen de la operación (importe, condición de venta, CAE).",
+          "Webhook de respuesta: n8n responde al POST original con un JSON que incluye el estado final, el CAE asignado, y URLs de descarga, permitiendo al sistema emisor (Google Sheets) reflejar el resultado en tiempo real.",
+          "Audit trail completo: Todos los pasos del workflow quedan registrados en los logs de n8n con metadatos de tiempo, permitiendo auditoría y debugging retrospectivo."
+        ]
+      }
+    ],
+    tech: ["n8n", "Node.js", "PostgreSQL", "Google Sheets API", "Google Drive API", "ngrok", "ARCA (WSAA)"],
+    links: {},
+    category: "Automatización de Procesos"
+  },
+  {
+    id: 2,
     title: "CountEverything Industry & Lab",
     description: "Sistema industrial de conteo de objetos mediante visión computacional. Optimizado para líneas de producción y entornos de laboratorio.",
     longDescription: "Desarrollo de algoritmos personalizados de visión computacional en Kotlin para procesar matrices de píxeles en tiempo real. Alto rendimiento logrado sin dependencias pesadas externas como OpenCV.",
@@ -93,38 +140,5 @@ export const projects = [
       playstore: "https://play.google.com/store/apps/details?id=com.mateoryhr.spaceradar"
     },
     category: "Backend & Mobile"
-  },
-  {
-    id: 3,
-    title: "Code Snippet Manager",
-    description: "Aplicación de escritorio multiplataforma para gestionar fragmentos de código, diseñada con un enfoque en productividad y generación rápida de contexto para herramientas de Inteligencia Artificial.",
-    longDescription: "Desarrollada bajo una arquitectura Fullstack (Electron, React, Node.js, Prisma), esta herramienta permite a los desarrolladores organizar, buscar e importar masivamente repositorios locales enteros. Su característica más destacada es un generador de contexto que agrupa dinámicamente el código de múltiples archivos en un formato optimizado para ser procesado por LLMs (como ChatGPT o Claude), acelerando drásticamente el flujo de desarrollo guiado por IA.",
-    technicalDetails: [
-      {
-        title: "Arquitectura Multiplataforma y Sistema de Archivos Nativo",
-        description: "Integración profunda entre el proceso principal de Electron (Node.js) y el proceso de renderizado (React) mediante canales IPC seguros.",
-        items: [
-          "Implementación de un algoritmo de búsqueda recursiva (File Crawler) para la importación masiva de código local, aplicando filtros por extensión y omitiendo de forma inteligente directorios pesados (node_modules, .git).",
-          "Manejo avanzado de APIs nativas del OS para cuadros de diálogo, gestionando la sincronización de foco y resolviendo colisiones entre Chromium y el gestor de ventanas de Windows (Drag Regions).",
-          "Diseño de interfaz Optimista (Optimistic UI) con Tailwind CSS, garantizando actualizaciones de estado instantáneas sin esperar la latencia de la base de datos."
-        ]
-      },
-      {
-        title: "Backend, Integridad de Datos y Funciones IA",
-        description: "Desarrollo de una API RESTful robusta y tipada estrictamente con TypeScript de extremo a extremo.",
-        items: [
-          "Diseño de base de datos relacional con PostgreSQL y Prisma ORM, implementando transacciones ($transaction) para garantizar el borrado en cascada seguro y mantener la integridad referencial.",
-          "Desarrollo de una utilidad de 'Contexto IA' que concatena y formatea estructuras de carpetas enteras utilizando delimitadores estándar (--- FILE: [name] ---) requeridos por modelos de lenguaje modernos.",
-          "Validación estricta de esquemas de entrada en la API utilizando Zod y manejo centralizado de errores para respuestas HTTP consistentes.",
-          "Implementación de un flujo seguro de verificación de cuentas mediante la generación de tokens criptográficos con tiempo de expiración y el envío asíncrono de correos electrónicos automatizados para activar y validar a los nuevos usuarios."
-        ]
-      }
-    ],
-    tech: ["Electron", "React", "Node", "PostgreeSQL"],
-    links: {
-      github: "https://github.com/MateoRyhr/code-snippet-manager",
-      web: "https://mateoryhr.github.io/code-snippet-manager/"
-    },
-    category: "Desktop Fullstack"
   }
 ];

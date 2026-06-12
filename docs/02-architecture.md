@@ -197,6 +197,37 @@ Because there is no backend:
 - **No analytics** (unless added via a third-party snippet).
 - **No authentication** — not needed.
 
+## 8. External Webhook Integration (AutomationDemo)
+
+While the portfolio remains a **static SPA**, the `AutomationDemo` feature makes a
+client-side `POST` request to an **external n8n webhook** (exposed via ngrok) to
+demonstrate process automation.
+
+### How It Works
+
+```
+User fills form (email)
+        ↓
+React component builds JSON payload
+        ↓
+fetch() POST to n8n webhook (external URL)
+        ↓
+n8n workflow processes → ARCA, Drive, Sheets, PostgreSQL
+        ↓
+Response → status shown to user
+```
+
+### Constraints
+
+- The webhook URL is defined in `src/data/config.js` (not hardcoded in components).
+- This is a **client-side fetch** to an external server — no backend we maintain.
+- CORS must be enabled on the n8n/ngrok endpoint to accept requests from the
+  portfolio domain (`mateoryhr.github.io` and `localhost`).
+- No authentication tokens are exposed (the webhook is configured to accept
+  anonymous POSTs from known origins).
+- Error handling is purely client-side: if the webhook is unreachable, the user
+  sees an error message but the portfolio remains fully functional.
+
 ### When to Add a Backend
 
 If future requirements demand:

@@ -4,6 +4,33 @@ _Append completed sessions here. Each entry should include: date, feature, outco
 
 ---
 
+## 2026-06-12 — Feature #13: Automation Portfolio Reorientation + n8n Project + Demo
+
+**Feature:** automation_portfolio (id: 13)
+**Status:** done
+**Agent:** leader (orchestrating subagents)
+
+### What was implemented:
+1. **ProfileHeader.jsx** — Updated title to include "Automatización de Procesos", new description mentioning n8n and process automation
+2. **skills-data.js** — Added new "Automatización" category (n8n, Workflow Automation, Webhooks, Google APIs, ARCA), enhanced Backend and Ingeniería Core skills
+3. **projects.js** — Added "Sistema de Facturación Automatizada ARCA" with 4 detailed technical blocks (Webhook trigger, ARCA integration, Multi-system sync, Notification cycle)
+4. **src/data/config.js** — New config file with parametrized `N8N_WEBHOOK_URL`
+5. **AutomationDemo.jsx** + **AutomationDemo.css** — Interactive form component with loading/success/error states, POST to n8n webhook
+6. **Home.jsx** — Added `<AutomationDemo />` section after Projects
+7. **App.css** — Added semantic error color variables (`--error-text`, `--error-bg`, `--error-border`)
+8. **docs/02-architecture.md** — Added §8 "External Webhook Integration"
+9. **DESIGN.md** — Added §5.5 AutomationDemo component pattern
+10. **docs/01-conventions.md** — Added §6b "External Webhook Calls", updated component hierarchy
+
+### Review:
+- Reviewer approved after 1 round of fixes (CSS line limit, hardcoded color, stale progress/current.md)
+
+### Build verification:
+- [x] `npm run build` succeeds (43 modules, CSS 13.87KB, JS 256.75KB)
+- [x] `npm run lint` passes (0 errors)
+
+---
+
 ## 2025-06-12 — Feature #11: Harness Engineering Adaptation
 
 **Feature:** harness_adaptation (id: 11)

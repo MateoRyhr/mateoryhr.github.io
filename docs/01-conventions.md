@@ -128,7 +128,8 @@ App.jsx (BrowserRouter)
 ├── Home.jsx
 │   ├── ProfileHeader.jsx    — Hero section with photo, name, CTAs
 │   ├── Skills.jsx           — Skill categories grid
-│   └── Projects.jsx         — Project cards grid
+│   ├── Projects.jsx         — Project cards grid
+│   └── AutomationDemo.jsx   — Interactive n8n webhook demo form
 └── ProjectDetail.jsx        — Full project breakdown (route: /proyecto/:id)
 Footer.jsx                   — Global footer (in App.jsx layout)
 ```
@@ -137,11 +138,12 @@ Footer.jsx                   — Global footer (in App.jsx layout)
 
 | Component | Responsibility |
 |-----------|----------------|
-| `ProfileHeader` | Hero: photo, name, title, description, CTA buttons, console greeting |
+| `ProfileHeader` | Hero: photo, name, title, description, CTA buttons |
 | `Skills` | Grid of skill category cards, each with icon, title, and tag list |
 | `Projects` | Grid of project cards with title, tech stack, links, read-more |
 | `ProjectDetail` | Full technical breakdown of one project with challenges and solutions |
-| `Footer` | Copyright, social links, status indicator |
+| `AutomationDemo` | Interactive demo form: POSTs to n8n webhook, shows loading/success/error states |
+| `Footer` | Copyright, social links |
 
 ---
 
@@ -155,6 +157,18 @@ Footer.jsx                   — Global footer (in App.jsx layout)
   import { skills } from '../data/skills-data';
   ```
 - **Project IDs** are integers matched via `useParams()` from React Router.
+
+---
+
+## 6b. External Webhook Calls
+
+- **Forms that POST to external webhooks are permitted** for demo/interactive features.
+- The webhook URL **must** be defined in `src/data/config.js` as a named export, never hardcoded in components.
+- Use `fetch()` with `POST` method, `Content-Type: application/json`, and proper error handling (try/catch).
+- Show loading, success, and error states to the user. Never leave the UI hanging.
+- The portfolio must remain fully functional if the webhook is unreachable (graceful degradation).
+- No authentication tokens, API keys, or secrets in client-side code.
+- CORS must be configured on the external endpoint; document this in the architecture docs.
 
 ---
 

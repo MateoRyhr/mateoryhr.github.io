@@ -13,13 +13,15 @@ const ProfileHeader = () => {
       <div className="profile-text-content">
         <h1 className="dev-name">Mateo Ryhr</h1>
         <h2 className="dev-title">
-          Fullstack Backend Dev <span className="accent-color">|</span> React & React Native
+          Fullstack Backend Dev <span className="accent-color">|</span> Automatización de Procesos <span className="accent-color">|</span> React & React Native
         </h2>
         
         <p className="dev-description">
-          Especializado en la arquitectura de APIs escalables con <strong>Node.js</strong> y el desarrollo 
-          de aplicaciones multiplataforma. Apasionado por la creación de soluciones integrales, desde el diseño robusto 
-          de bases de datos relacionales hasta la experiencia de usuario final en Web y Mobile.
+          Especializado en la arquitectura de APIs escalables con <strong>Node.js</strong>, el desarrollo 
+          de aplicaciones multiplataforma y la <strong>automatización de procesos administrativos, contables y de RRHH</strong>. 
+          Apasionado por crear soluciones que conectan sistemas, eliminan tareas repetitivas y optimizan 
+          flujos de trabajo mediante integraciones inteligentes con <strong>n8n</strong>, <strong>webhooks</strong> 
+          y bases de datos.
         </p>
         
         <div className="action-links">

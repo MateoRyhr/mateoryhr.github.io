@@ -1,6 +1,7 @@
 import ProfileHeader from '../components/ProfileHeader';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
+import AutomationDemo from '../components/AutomationDemo';
 import '../App.css';
 
 
@@ -16,6 +17,9 @@ const Home = () => {
         <section id="projects">
           <Projects />
         </section>
+
+        {/* n8n automation demo */}
+        <AutomationDemo />
       </div>
   );
 }

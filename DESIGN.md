@@ -256,7 +256,38 @@ Node.js  React  PostgreSQL    (clean pill tags)
 - Tech badges: same pill style as project cards (blue on light blue)
 - Links section: white card, subtle shadow, secondary button style
 
-### 5.5 Footer
+### 5.5 AutomationDemo (Interactive Form)
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Probá la Automatización                                       │
+│                                                                │
+│  ┌─────────────────────────┐  ┌──────────────────────────┐    │
+│  │ Este workflow de n8n    │  │  Tu email *               │    │
+│  │ automatiza la emisión   │  │  ┌────────────────────┐  │    │
+│  │ de facturas con ARCA... │  │  │ email@empresa.com  │  │    │
+│  │                         │  │  └────────────────────┘  │    │
+│  │ • Completás el formul.  │  │                          │    │
+│  │ • n8n recibe vía wh     │  │  ℹ️ Datos demo pre-fill  │    │
+│  │ • El workflow genera    │  │                          │    │
+│  │ • Te llega el comprob.  │  │  [    Enviar Demo    ]   │    │
+│  │ • Se registra en Drive  │  │                          │    │
+│  └─────────────────────────┘  └──────────────────────────┘    │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**Visual details:**
+- Two-column layout: left info + right form card
+- Info column: description text + numbered steps list
+- Form card: white background, 12px border-radius, soft shadow, subtle border
+- Email input: standard bordered input with blue focus ring
+- Pre-fill note: muted background (`var(--bg-muted)`), tertiary text, info icon
+- Submit button: full-width primary blue button
+- States: idle (form visible), loading (spinner + "Enviando..."), success (checkmark + message), error (red alert box)
+- Success state shows a confirmation message with the submitted email
+- Responsive: stacks vertically on mobile
+
+### 5.6 Footer
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

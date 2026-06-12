@@ -2,9 +2,14 @@
 
 export const skills = [
   {
+    title: "Automatización",
+    icon: "⚡",
+    skills: ["n8n", "Workflow Automation", "Webhooks", "Google Sheets API", "Google Drive API", "Integración de APIs REST", "ARCA (Facturación Electrónica)"]
+  },
+  {
     title: "Backend",
     icon: "⚙️",
-    skills: ["TypeScript", "Node.js", "Express", "PostgreSQL", "APIs RESTful", "Despliegue en Supabase y Render"]
+    skills: ["TypeScript", "Node.js", "Express", "PostgreSQL", "APIs RESTful", "Webhooks", "n8n", "Despliegue en Supabase y Render"]
   },
   {
     title: "Frontend (Web)",
@@ -19,11 +24,11 @@ export const skills = [
   {
     title: "Ingeniería Core",
     icon: "🧠",
-    skills: ["Algoritmos", "Linux/WSL2", "Git/GitHub", "Docker", "Diseño de Arquitectura", "SOLID", "CI/CD con GitHub Actions"]
+    skills: ["Algoritmos", "Linux/WSL2", "Git/GitHub", "Docker", "Diseño de Arquitectura", "SOLID", "CI/CD con GitHub Actions", "Automatización de Procesos", "ngrok"]
   },
   {
     title: "Habilidades Blandas",
     icon: "🤝",
-    skills: ["Inglés B2", "Resolución de Problemas", "Aprendizaje Autónomo", "Adaptabilidad"]
+    skills: ["Inglés B2", "Resolución de Problemas", "Aprendizaje Autónomo", "Adaptabilidad", "Orientación a Resultados"]
   }
 ];
