@@ -50,6 +50,45 @@ export const projects = [
   },
   {
     id: 2,
+    title: "SpaceRadar",
+    description: "Sistema de rastreo en tiempo real de la Estación Espacial Internacional (ISS) y Objetos Próximos a la Tierra (NEOs).",
+    longDescription: "Integración de APIs públicas de la NASA para monitorear trayectorias orbitales. Implementación de un sistema de notificaciones para eventos astronómicos basado en la geolocalización del usuario.",
+    technicalDetails: [
+      {
+        title: "Backend (SpaceWatcher API):",
+        description: "Construido bajo una arquitectura de microservicios, el backend actúa como una capa de abstracción y seguridad.",
+        items: [
+          "Consumo de Datos Externos: Implementa integraciones con la API NeoWs (Near Earth Object Web Service) de la NASA y sistemas de rastreo de la ISS.",
+          "Capa de Autenticación (SSO): Se diseñó un flujo de autenticación mediante Google OAuth 2.0, validando tokens de identidad (ID Tokens) en el servidor para garantizar que solo usuarios legítimos accedan a los recursos.",
+          "Persistencia Geográfica: Utiliza PostgreSQL para almacenar perfiles de observatorios (usuarios) y sus coordenadas, permitiendo cálculos de proximidad para eventos astronómicos.",
+          "Procesamiento Asíncrono: Manejo de colas y tareas programadas para actualizar la base de datos de objetos cercanos a la Tierra (NEOs) sin bloquear el hilo principal de la API."
+        ]
+      },
+      {
+        title: "Frontend (SpaceRadar App):",
+        description: "Una aplicación móvil desarrollada con React Native (Expo) que prioriza el rendimiento y la experiencia del usuario en condiciones de baja luminosidad (Dark Mode nativo).",
+        items: [
+          "Geolocalización al registrar usuario: Implementación de expo-location para obtener coordenadas precisas del 'observatorio' del usuario y realizar el cálculo de paso de la estación espacial.",
+          "Gestión de Estado y Seguridad: Uso de SecureStore para el manejo de tokens JWT y contextos de React para la persistencia de la sesión."
+        ]
+      },
+      {
+        title: "Desafíos Técnicos y Soluciones",
+        description: "",
+        items: [
+          "Seguridad de Datos y Privacidad: Se implementó una política de transparencia en la recolección de datos, declarando el uso de identificadores de publicidad (AD_ID) para AdMob y gestionando permisos de ubicación en primer plano, cumpliendo con los estándares de Data Safety de Android 13+.",
+          "Optimización del Bundle: Se logró reducir el peso de la aplicación y mejorar el tiempo de carga mediante el uso de Android App Bundles (.aab), permitiendo que Google Play genere APKs optimizados para cada arquitectura de dispositivo específica."
+        ]
+      }
+    ],
+    tech: ["React Native", "Node.js", "PostgreSQL"],
+    links: {
+      playstore: "https://play.google.com/store/apps/details?id=com.mateoryhr.spaceradar"
+    },
+    category: "Backend & Mobile"
+  },
+  {
+    id: 3,
     title: "CountEverything Industry & Lab",
     description: "Sistema industrial de conteo de objetos mediante visión computacional. Optimizado para líneas de producción y entornos de laboratorio.",
     longDescription: "Desarrollo de algoritmos personalizados de visión computacional en Kotlin para procesar matrices de píxeles en tiempo real. Alto rendimiento logrado sin dependencias pesadas externas como OpenCV.",
@@ -101,44 +140,5 @@ export const projects = [
       playstore: ""
     },
     category: "Mobile & Algoritmos"
-  },
-  {
-    id: 2,
-    title: "SpaceRadar",
-    description: "Sistema de rastreo en tiempo real de la Estación Espacial Internacional (ISS) y Objetos Próximos a la Tierra (NEOs).",
-    longDescription: "Integración de APIs públicas de la NASA para monitorear trayectorias orbitales. Implementación de un sistema de notificaciones para eventos astronómicos basado en la geolocalización del usuario.",
-    technicalDetails: [
-      {
-        title: "Backend (SpaceWatcher API):",
-        description: "Construido bajo una arquitectura de microservicios, el backend actúa como una capa de abstracción y seguridad.",
-        items: [
-          "Consumo de Datos Externos: Implementa integraciones con la API NeoWs (Near Earth Object Web Service) de la NASA y sistemas de rastreo de la ISS.",
-          "Capa de Autenticación (SSO): Se diseñó un flujo de autenticación mediante Google OAuth 2.0, validando tokens de identidad (ID Tokens) en el servidor para garantizar que solo usuarios legítimos accedan a los recursos.",
-          "Persistencia Geográfica: Utiliza PostgreSQL para almacenar perfiles de observatorios (usuarios) y sus coordenadas, permitiendo cálculos de proximidad para eventos astronómicos.",
-          "Procesamiento Asíncrono: Manejo de colas y tareas programadas para actualizar la base de datos de objetos cercanos a la Tierra (NEOs) sin bloquear el hilo principal de la API."
-        ]
-      },
-      {
-        title: "Frontend (SpaceRadar App):",
-        description: "Una aplicación móvil desarrollada con React Native (Expo) que prioriza el rendimiento y la experiencia del usuario en condiciones de baja luminosidad (Dark Mode nativo).",
-        items: [
-          "Geolocalización al registrar usuario: Implementación de expo-location para obtener coordenadas precisas del 'observatorio' del usuario y realizar el cálculo de paso de la estación espacial.",
-          "Gestión de Estado y Seguridad: Uso de SecureStore para el manejo de tokens JWT y contextos de React para la persistencia de la sesión."
-        ]
-      },
-      {
-        title: "Desafíos Técnicos y Soluciones",
-        description: "",
-        items: [
-          "Seguridad de Datos y Privacidad: Se implementó una política de transparencia en la recolección de datos, declarando el uso de identificadores de publicidad (AD_ID) para AdMob y gestionando permisos de ubicación en primer plano, cumpliendo con los estándares de Data Safety de Android 13+.",
-          "Optimización del Bundle: Se logró reducir el peso de la aplicación y mejorar el tiempo de carga mediante el uso de Android App Bundles (.aab), permitiendo que Google Play genere APKs optimizados para cada arquitectura de dispositivo específica."
-        ]
-      }
-    ],
-    tech: ["React Native", "Node.js", "PostgreSQL"],
-    links: {
-      playstore: "https://play.google.com/store/apps/details?id=com.mateoryhr.spaceradar"
-    },
-    category: "Backend & Mobile"
   }
 ];
