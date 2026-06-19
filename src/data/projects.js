@@ -77,8 +77,6 @@ export const projects = [
         description: "El texto extraído se envía a un modelo de lenguaje con un prompt diseñado específicamente para el formato de factura electrónica argentina (ARCA).",
         items: [
           "Prompt experto: El sistema prompt define al modelo como 'extractor de datos de facturas electrónicas argentinas (ARCA)' y especifica el schema JSON exacto a devolver, incluyendo cuitEmisor, razonSocial, tipoComprobante (Factura A/B/C, Nota de Credito/Debito, Factura M), puntoVenta, numero, cae, fechaEmision, netosPorAlicuota, ivaPorAlicuota, exento, noGravado, total, percepciones, moneda y cotizacion.",
-          "Backends intercambiables: Usa Google Gemini por defecto (API key gratuita), configurable a OpenAI o Anthropic vía variables de entorno PDF_EXTRACTOR_AI_BACKEND, PDF_EXTRACTOR_AI_APIKEY, PDF_EXTRACTOR_AI_MODEL.",
-          "Resiliencia: Si el LLM devuelve JSON malformado, reintenta 1 vez antes de fallar con AI_PARSE_FAILED. El texto crudo (rawText) se incluye en la respuesta de error para depuración."
         ]
       },
       {
