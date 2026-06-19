@@ -4,3 +4,6 @@
 
 export const N8N_WEBHOOK_URL =
   "https://unendeared-larhonda-cycloidally.ngrok-free.dev/webhook/facturacion-e2e";
+
+export const PDF_EXTRACTOR_WEBHOOK_URL =
+  "https://unendeared-larhonda-cycloidally.ngrok-free.dev/webhook/extraer-factura";

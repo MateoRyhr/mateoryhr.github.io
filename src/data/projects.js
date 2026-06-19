@@ -50,6 +50,54 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Extracción de datos automática de Factura PDF",
+    description: "Extracción de datos de facturas PDF con OCR + IA. Recibe un PDF de factura argentina, extrae el texto (nativo u OCR con OCR.space), lo envía a un LLM (Google Gemini configurable a OpenAI/Anthropic) para parsing contextual, y devuelve el JSON canónico del módulo AP.",
+    longDescription: "Subworkflow de n8n diseñado como paso opcional al inicio del orquestador 20_AP. Cuando un PDF de factura llega vía POST a /extraer-factura, el workflow valida el archivo (tamaño, header PDF), extrae el texto (directamente si tiene capa de texto, o mediante OCR.space si es escaneado), lo envía a un modelo de lenguaje con un prompt especializado para factura argentina que conoce CUIT, CAE, alícuotas IVA 21/10.5/27, tipos de comprobante A/B/C/NC, y percepciones, y finalmente devuelve un JSON canónico validado contra esquema estricto.",
+    technicalDetails: [
+      {
+        title: "Arquitectura del Workflow: Endpoint POST /extraer-factura",
+        description: "El flujo se activa mediante un Webhook HTTP POST que acepta dos formatos de entrada: multipart/form-data con campo file (ideal para integración desde formularios web o aplicaciones), o application/json con base64 del PDF y filename. El webhook está expuesto mediante ngrok para accesibilidad externa durante desarrollo.",
+        items: [
+          "Webhook trigger: POST /extraer-factura acepta multipart/form-data (file) o application/json ({ base64, filename }). Diseñado para integrarse como paso opcional al inicio del orquestador 20_AP.",
+          "Validación de entrada: El nodo 'Preparar buffer' decodifica el base64 o extrae del multipart, valida tamaño contra PDF_EXTRACTOR_MAX_SIZE_MB (default 10MB) y verifica el header del PDF (primeros 4 bytes = %PDF).",
+          "Canal de exposición segura: n8n corre en servidor self-hosted y se expone a internet mediante ngrok con túnel HTTPS y URL pública dinámica."
+        ]
+      },
+      {
+        title: "Extracción de Texto: Nativo u OCR con OCR.space",
+        description: "El corazón del workflow es la capacidad de extraer texto de cualquier PDF, ya sea digital o escaneado. El skill pdfInvoiceExtractor encapsula esta lógica con dos backends intercambiables.",
+        items: [
+          "Extracción directa: Si el PDF tiene capa de texto nativa, se extrae directamente sin necesidad de OCR, ahorrando tiempo y recursos.",
+          "OCR con OCR.space: Si el PDF es escaneado (imagen sin texto seleccionable), se utiliza OCR.space en su free tier como backend predeterminado, configurable vía PDF_EXTRACTOR_OCR_BACKEND y PDF_EXTRACTOR_OCR_APIKEY.",
+          "Resultado estructurado: La función extractText devuelve { text, method ('native'|'ocr'), confidence }, permitiendo al workflow downstream conocer la confianza de la extracción."
+        ]
+      },
+      {
+        title: "Parsing Contextual con IA: Prompt Especializado para Factura Argentina",
+        description: "El texto extraído se envía a un modelo de lenguaje con un prompt diseñado específicamente para el formato de factura electrónica argentina (ARCA).",
+        items: [
+          "Prompt experto: El sistema prompt define al modelo como 'extractor de datos de facturas electrónicas argentinas (ARCA)' y especifica el schema JSON exacto a devolver, incluyendo cuitEmisor, razonSocial, tipoComprobante (Factura A/B/C, Nota de Credito/Debito, Factura M), puntoVenta, numero, cae, fechaEmision, netosPorAlicuota, ivaPorAlicuota, exento, noGravado, total, percepciones, moneda y cotizacion.",
+          "Backends intercambiables: Usa Google Gemini por defecto (API key gratuita), configurable a OpenAI o Anthropic vía variables de entorno PDF_EXTRACTOR_AI_BACKEND, PDF_EXTRACTOR_AI_APIKEY, PDF_EXTRACTOR_AI_MODEL.",
+          "Resiliencia: Si el LLM devuelve JSON malformado, reintenta 1 vez antes de fallar con AI_PARSE_FAILED. El texto crudo (rawText) se incluye en la respuesta de error para depuración."
+        ]
+      },
+      {
+        title: "Validación Canónica y Respuesta Estandarizada",
+        description: "El JSON devuelto por el LLM se valida contra un esquema canónico antes de responder al cliente, garantizando consistencia en todos los casos.",
+        items: [
+          "Validación contra esquema: La función validateCanonical verifica tipos, campos requeridos y coherencia (total = netos + iva + exento + percepciones). Si falla, responde con VALIDATION_FAILED y warnings.",
+          "Respuesta 200 OK: { ok: true, extractionMethod, confidence, invoice: {...canonical...}, warnings }. El invoice sigue el schema canónico del módulo AP listo para consumir.",
+          "Respuesta 422 Error: { ok: false, error: CODIGO, message, rawText }. Códigos de error: INVALID_PDF, NO_TEXT_EXTRACTED, AI_PARSE_FAILED, AI_TIMEOUT, OCR_TIMEOUT.",
+          "Integración con el orquestador: El errorWorkflow configurado es 00_Global_Error_Catcher, y el subworkflow está diseñado para conectarse como paso inicial del orquestador 20_AP."
+        ]
+      }
+    ],
+    tech: ["n8n", "Node.js", "OCR.space", "Google Gemini", "OpenAI", "Anthropic", "ngrok"],
+    links: {},
+    category: "Automatización de Procesos"
+  },
+  {
+    id: 3,
     title: "SpaceRadar",
     description: "Sistema de rastreo en tiempo real de la Estación Espacial Internacional (ISS) y Objetos Próximos a la Tierra (NEOs).",
     longDescription: "Integración de APIs públicas de la NASA para monitorear trayectorias orbitales. Implementación de un sistema de notificaciones para eventos astronómicos basado en la geolocalización del usuario.",
@@ -88,7 +136,7 @@ export const projects = [
     category: "Backend & Mobile"
   },
   {
-    id: 3,
+    id: 4,
     title: "CountEverything Industry & Lab",
     description: "Sistema industrial de conteo de objetos mediante visión computacional. Optimizado para líneas de producción y entornos de laboratorio.",
     longDescription: "Desarrollo de algoritmos personalizados de visión computacional en Kotlin para procesar matrices de píxeles en tiempo real. Alto rendimiento logrado sin dependencias pesadas externas como OpenCV.",

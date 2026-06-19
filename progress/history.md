@@ -4,7 +4,29 @@ _Append completed sessions here. Each entry should include: date, feature, outco
 
 ---
 
-## 2026-06-12 — Feature #13: Automation Portfolio Reorientation + n8n Project + Demo
+## 2026-06-18 — Feature #14: PDF Invoice Extraction Project + Interactive Demo
+
+**Feature:** pdf_invoice_extraction_project (id: 14)
+**Status:** done
+**Agent:** leader (orchestrating subagents)
+
+### What was implemented:
+1. **src/data/projects.js** — Added project "Subworkflow 27_AP_Extraer_Factura_PDF" (id: 4) with 4 technical detail blocks (Webhook endpoint, OCR extraction, AI parsing with Gemini/OpenAI/Anthropic, Canonical validation)
+2. **src/data/config.js** — Added `PDF_EXTRACTOR_WEBHOOK_URL` pointing to n8n ngrok endpoint
+3. **src/components/InvoiceDemo.jsx** — New interactive demo: file upload for PDF, POST to webhook as multipart/form-data, loading/success/error states, JSON result preview
+4. **src/components/InvoiceDemo.css** — Component-scoped styles following professional design system (189 lines)
+5. **src/pages/Home.jsx** — Added `<InvoiceDemo />` section after `<AutomationDemo />`
+
+### Review:
+- Reviewer approved after 1 fix: CSS file reduced from 234 to 189 lines (< 200 limit)
+- Minor: hardcoded `#FFFFFF` in file-selector-button kept (follows App.css pattern)
+
+### Build verification:
+- [x] `npm run build` succeeds (45 modules, 690ms)
+- [x] `npm run lint` passes (0 errors in src/)
+
+---
+
 
 **Feature:** automation_portfolio (id: 13)
 **Status:** done

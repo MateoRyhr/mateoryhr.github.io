@@ -2,6 +2,7 @@ import ProfileHeader from '../components/ProfileHeader';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import AutomationDemo from '../components/AutomationDemo';
+import InvoiceDemo from '../components/InvoiceDemo';
 import '../App.css';
 
 
@@ -20,6 +21,9 @@ const Home = () => {
 
         {/* n8n automation demo */}
         <AutomationDemo />
+
+        {/* PDF invoice extraction demo */}
+        <InvoiceDemo />
       </div>
   );
 }

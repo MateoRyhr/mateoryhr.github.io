@@ -165,6 +165,20 @@
         "Documentación actualizada (architecture.md, DESIGN.md, conventions.md)"
       ],
       "status": "done"
+    },
+    {
+      "id": 14,
+      "name": "pdf_invoice_extraction_project",
+      "title": "Proyecto Subworkflow 27_AP_Extraer_Factura_PDF + Demo interactivo de extracción de facturas PDF",
+      "description": "Agregar proyecto n8n de extracción de datos de facturas PDF con OCR+IA. Crear demo interactivo donde RRHH/técnicos suban un PDF y reciban JSON estructurado. Nuevo webhook en config.js.",
+      "acceptance": [
+        "projects.js incluye proyecto 'ap-subworkflow-27-extraer-factura-pdf' con detalle técnico completo",
+        "config.js incluye PDF_EXTRACTOR_WEBHOOK_URL con URL del webhook de n8n",
+        "InvoiceDemo.jsx + InvoiceDemo.css: formulario con file upload, POST al webhook de n8n, estados loading/success/error",
+        "Home.jsx incluye sección <InvoiceDemo /> después de <AutomationDemo />",
+        "npm run build y npm run lint pasan sin errores"
+      ],
+      "status": "done"
     }
   ]
 }

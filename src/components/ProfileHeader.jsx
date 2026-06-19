@@ -20,8 +20,7 @@ const ProfileHeader = () => {
           Especializado en la arquitectura de APIs escalables con <strong>Node.js</strong>, el desarrollo 
           de aplicaciones multiplataforma y la <strong>automatización de procesos administrativos, contables y de RRHH</strong>. 
           Apasionado por crear soluciones que conectan sistemas, eliminan tareas repetitivas y optimizan 
-          flujos de trabajo mediante integraciones inteligentes con <strong>n8n</strong>, <strong>webhooks</strong> 
-          y bases de datos.
+          flujos de trabajo mediante integraciones inteligentes con <strong>n8n</strong>, <strong>webhooks</strong> y bases de datos.
         </p>
         
         <div className="action-links">
