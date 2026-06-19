@@ -173,7 +173,28 @@ const InvoiceDemo = () => {
               <form onSubmit={handleSubmit} className="invoice-form">
                 <div className="invoice-field">
                   <label htmlFor="invoice-file">PDF de factura <span className="invoice-required">*</span></label>
-                  <input id="invoice-file" type="file" accept=".pdf,application/pdf" onChange={handleFileChange} required disabled={status === 'loading'} className="invoice-file-input" />
+                  <div className="invoice-file-wrapper">
+                    <input
+                      id="invoice-file"
+                      type="file"
+                      accept=".pdf,application/pdf"
+                      onChange={handleFileChange}
+                      required
+                      disabled={status === 'loading'}
+                      className="invoice-file-input"
+                    />
+                    <button
+                      type="button"
+                      className="invoice-file-button"
+                      disabled={status === 'loading'}
+                      onClick={() => document.getElementById('invoice-file')?.click()}
+                    >
+                      Seleccionar archivo
+                    </button>
+                    <span className="invoice-file-name">
+                      {file ? file.name : 'Ningún archivo seleccionado'}
+                    </span>
+                  </div>
                 </div>
                 <div className="invoice-prefill-note">
                   <span className="invoice-prefill-icon">ℹ️</span>

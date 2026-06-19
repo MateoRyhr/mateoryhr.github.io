@@ -133,12 +133,12 @@ export const projects = [
     links: {
       playstore: "https://play.google.com/store/apps/details?id=com.mateoryhr.spaceradar"
     },
-    category: "Backend & Mobile"
+    category: "App Mobile"
   },
   {
     id: 4,
     title: "CountEverything Industry & Lab",
-    description: "Sistema industrial de conteo de objetos mediante visión computacional. Optimizado para líneas de producción y entornos de laboratorio.",
+    description: "Sistema industrial de conteo de objetos mediante visión computacional usando la cámara del celular. Optimizado para líneas de producción y entornos de laboratorio.",
     longDescription: "Desarrollo de algoritmos personalizados de visión computacional en Kotlin para procesar matrices de píxeles en tiempo real. Alto rendimiento logrado sin dependencias pesadas externas como OpenCV.",
     technicalDetails: [
       {
@@ -187,6 +187,6 @@ export const projects = [
     links: {
       playstore: ""
     },
-    category: "Mobile & Algoritmos"
+    category: "App Mobile"
   }
 ];

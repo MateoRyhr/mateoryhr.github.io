@@ -12,8 +12,6 @@ const Home = () => {
         {/* Intro of me */}
         <ProfileHeader />
 
-        <Skills />
-
         {/* Displaying project list */}
         <section id="projects">
           <Projects />
@@ -24,6 +22,8 @@ const Home = () => {
 
         {/* PDF invoice extraction demo */}
         <InvoiceDemo />
+
+        <Skills />
       </div>
   );
 }
