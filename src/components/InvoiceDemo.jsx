@@ -49,6 +49,8 @@ const InvoiceDemo = () => {
   (inv?.netosPorAlicuota || []).forEach(n => nm[n.alicuota] = n.monto);
   (inv?.ivaPorAlicuota || []).forEach(i => im[i.alicuota] = i.monto);
   const alicuotas = [...new Set([...Object.keys(nm), ...Object.keys(im)].map(Number))].sort((a, b) => b - a);
+  const totalNeto = alicuotas.reduce((s, al) => s + (nm[al] || 0), 0);
+  const totalIVA = alicuotas.reduce((s, al) => s + (im[al] || 0), 0);
   const showIva = inv?.netosPorAlicuota?.length > 0 || inv?.ivaPorAlicuota?.length > 0;
   const gridFields = [
     ['CUIT Emisor', inv?.cuitEmisor],
@@ -113,9 +115,8 @@ const InvoiceDemo = () => {
                         <thead>
                           <tr>
                             <th>Alícuota</th>
-                            <th className="invoice-text-right">Neto</th>
+                            <th className="invoice-text-right">Neto Gravado</th>
                             <th className="invoice-text-right">IVA</th>
-                            <th className="invoice-text-right">Subtotal</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -125,16 +126,14 @@ const InvoiceDemo = () => {
                               <td>{al}%</td>
                               <td className="invoice-text-right">{fmt(neto)}</td>
                               <td className="invoice-text-right">{fmt(iva)}</td>
-                              <td className="invoice-text-right">{fmt(neto + iva)}</td>
                             </tr>;
                           })}
                         </tbody>
                         <tfoot>
                           <tr>
                             <th>Totales</th>
-                            <th className="invoice-text-right">{fmt(inv?.netosPorAlicuota?.reduce((s, n) => s + n.monto, 0))}</th>
-                            <th className="invoice-text-right">{fmt(inv?.ivaPorAlicuota?.reduce((s, i) => s + i.monto, 0))}</th>
-                            <th className="invoice-text-right">{fmt(inv?.total)}</th>
+                            <th className="invoice-text-right">{fmt(totalNeto)}</th>
+                            <th className="invoice-text-right">{fmt(totalIVA)}</th>
                           </tr>
                         </tfoot>
                       </table>
@@ -156,7 +155,9 @@ const InvoiceDemo = () => {
                     </div>
                   )}
                   <div className="invoice-data-section">
-                    <div className="invoice-totals-box">
+                      <div className="invoice-totals-box">
+                      <div className="invoice-totals-row"><span>Subtotal / Neto Gravado:</span><span>{fmt(totalNeto)}</span></div>
+                      <div className="invoice-totals-row"><span>IVA:</span><span>{fmt(totalIVA)}</span></div>
                       <div className="invoice-totals-row"><span>Exento:</span><span>{fmt(inv?.exento)}</span></div>
                       {inv?.noGravado > 0 && <div className="invoice-totals-row"><span>No Gravado:</span><span>{fmt(inv.noGravado)}</span></div>}
                       <div className="invoice-totals-divider" />
